@@ -65,6 +65,7 @@ yarn-error.log*
 *.njsproj
 *.sw*
 *.jfm
+*.dbmdl
 
 # IntelliJ
 *.iml

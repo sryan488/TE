@@ -6,22 +6,31 @@ cd ~/playground
 # !!! DO NOT CHANGE THE LINES ABOVE !!!
 
 # create a new directory called 'usa'
+mkdir usa
 
 # create a new directory called 'canada'
+mkdir canada
 
 # change your working directory to the 'usa' directory
+cd usa
 
 # create a new directory called 'ohio'
+mkdir ohio
 
 # create a new directory called 'pennsylvania'
+mkdir pennsylvania
 
 # create a new directory called 'michigan'
+mkdir michigan
 
 # change your working directory to the 'canada' directory
+cd ../canada
 
 # create a new directory called 'quebec'
+mkdir quebec
 
 # create a new directory called 'british columbia'
+mkdir 'british columbia' 
 
 # change your working directory to the 'ohio' directory
 

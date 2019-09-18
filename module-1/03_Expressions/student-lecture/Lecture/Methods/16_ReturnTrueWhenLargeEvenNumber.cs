@@ -15,8 +15,19 @@ namespace Lecture
             TOPIC: Complex Expression
         */
         public string ReturnBigEvenNumber(int number)
-        {            
-            return null;
+        {   
+            if (number % 2 == 0 //number is even
+                && number > 100 //number is greater 100
+                && number % 5 == 0
+                )
+            {
+                return "Big Even Number";
+            }
+            else if (number > 100)
+            {
+                return "Big Number";
+            }
+            return "";
         }
         
 

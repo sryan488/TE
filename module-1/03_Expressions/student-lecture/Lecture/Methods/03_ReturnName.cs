@@ -15,7 +15,8 @@ namespace Lecture
         */
         public string ReturnName()
         {
-            return null;
+            Console.WriteLine("Sean");
+            return "Sean";
         }
 
     }

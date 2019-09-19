@@ -18,7 +18,28 @@ namespace Exercises
          */
         public int Sum13(int[] nums)
         {
-            return 0;
+            int sum = 0;
+            bool luck = true;
+            for (int i = 0; i < nums.Length; i++)
+            {
+                if (nums[i] != 13)
+                {
+
+                  if (luck == true)
+                  { 
+                    sum += nums[i];
+                  }
+                   if (luck == false)
+                    {
+                        luck = true;
+                    } 
+                }
+                else
+                {
+                    luck = false;
+                }
+            }
+            return sum;
         }
 
     }

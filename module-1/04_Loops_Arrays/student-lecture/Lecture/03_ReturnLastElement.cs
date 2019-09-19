@@ -15,9 +15,9 @@ namespace Lecture
          */
         public int ReturnLastElement()
         {
-            int[] portNumbers = { 80, 8080, 443 };
+            int[] portNumbers = new int[] { 80, 8080, 443 };
             
-            return 0;
+            return portNumbers[portNumbers.Length-1];
         }
     }
 }

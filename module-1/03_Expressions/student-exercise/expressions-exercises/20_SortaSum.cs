@@ -18,7 +18,9 @@ namespace Exercises
          */
         public int SortaSum(int a, int b)
         {
-            return 0;
+            int sum = a + b;
+            return sum >= 10 && sum < 20 ? 20 : sum;
+            
         }
 
     }

@@ -19,7 +19,7 @@ namespace Exercises
          */
         public bool MonkeyTrouble(bool aSmile, bool bSmile)
         {
-            return false;
+            return (aSmile == bSmile);
         }
 
     }

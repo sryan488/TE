@@ -17,8 +17,16 @@ namespace Exercises
          */
         public bool In1To10(int n, bool outsideMode)
         {
-            return false;
-        }
+            if ((n <= 10 && n >= 1 && !outsideMode) || (outsideMode && n <= 1) || (outsideMode && n >= 10))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
 
+
+            }
+        }
     }
 }

@@ -24,7 +24,7 @@ namespace Lecture
                     highestNumber = randomNumbers[i];
                 }
             }
-
+            
             return highestNumber;
         }
     }

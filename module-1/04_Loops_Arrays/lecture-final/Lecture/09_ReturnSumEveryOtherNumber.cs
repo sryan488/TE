@@ -24,7 +24,7 @@ namespace Lecture
             {
                 sum += arrayToLoopThrough[counter];
             }
-
+            
             return sum;
         }
     }

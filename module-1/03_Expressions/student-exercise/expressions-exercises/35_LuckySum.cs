@@ -26,11 +26,11 @@ namespace Exercises
             {
                 return 0;
             }
-            if (b == 13)
+            else if (b == 13)
             {
                 return a;
             }
-            if (c == 13)
+            else if (c == 13)
             {
                 return a + b;
             }

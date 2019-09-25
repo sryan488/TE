@@ -17,7 +17,7 @@ namespace Exercises
         */
         public string StringX(string str)
         {
-            return null;
+         
         }
     }
 }

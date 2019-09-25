@@ -16,6 +16,10 @@ namespace Exercises
          */
         public bool EndsLy(string str)
         {
+            if (str.EndsWith("ly"))
+            {
+                return true;
+            }
             return false;
         }
     }

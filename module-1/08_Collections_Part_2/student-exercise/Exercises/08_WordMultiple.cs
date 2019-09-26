@@ -19,7 +19,19 @@ namespace Exercises
          */
         public Dictionary<string, bool> WordMultiple(string[] words)
         {
-            return null;
+            Dictionary<string, bool> appearsTwice = new Dictionary<string, bool>();
+            foreach (string word in words)
+            {
+                if (appearsTwice.ContainsKey(word))
+                {
+                    appearsTwice[word] = true;
+                }
+                else
+                {
+                    appearsTwice.Add(word, false);
+                }
+            }
+            return appearsTwice;
         }
     }
 }

@@ -16,11 +16,13 @@ namespace Exercises
          */
         public List<string> Array2List(string[] stringArray)
         {
-            List<string> words = new List<string>() {};
-            Console.WriteLine(words);
-            Console.WriteLine(string.Join(",", words));
+            List<string> arrayList = new List<string>();
+            foreach (string a in stringArray)
+            {
+                arrayList.Add(a);
+            }
+            return arrayList;
 
-            
         }
 
     }

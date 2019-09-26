@@ -17,6 +17,7 @@ namespace CollectionsLectureNotes
             //
             // Creating lists of integers
             List<int> numbers = new List<int>();
+            {1, 2, 2, 2};
             Console.WriteLine(numbers);
             Console.WriteLine(string.Join(",", numbers));
 

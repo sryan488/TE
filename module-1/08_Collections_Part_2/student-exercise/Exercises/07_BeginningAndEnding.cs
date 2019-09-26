@@ -18,7 +18,12 @@ namespace Exercises
          */
         public Dictionary<string, string> BeginningAndEnding(string[] words)
         {
-            return null;
+            Dictionary<string, string> firstLast = new Dictionary<string, string>();
+            foreach (string word in words)
+            {
+                firstLast[word[0].ToString()] = word[word.Length - 1].ToString();
+            }
+            return firstLast;
         }
     }
 }

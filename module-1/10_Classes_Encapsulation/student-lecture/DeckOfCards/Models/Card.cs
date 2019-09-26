@@ -122,6 +122,5 @@ namespace DeckOfCards.Models
                 return title;
             }
         }
-
     }
 }

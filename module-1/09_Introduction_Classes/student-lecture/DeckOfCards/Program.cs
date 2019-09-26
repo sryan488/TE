@@ -7,6 +7,16 @@ namespace DeckOfCards
     {
         static void Main(string[] args)
         {
+
+            //Card card = new Card()
+            //card.IsFaceUp = true;
+            //card.Rank = 2;
+            //card.Suit = "HEARTS";
+
+            //Console.WriteLine($"Card: {card.Rank} of {card.Suit}, face { (card.IsFaceUp ? "up" : "down") });
+            //Console.ReadLine();
+            //return;
+
             // Let's store all of our cards in a list
             // CODE GOES HERE
 

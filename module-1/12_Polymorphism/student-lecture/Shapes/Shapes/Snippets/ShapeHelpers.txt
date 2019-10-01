@@ -1,0 +1,15 @@
+﻿        #region Helper Methods
+        // A place to save the current color for restoring after the draw
+        private ConsoleColor savedColor = ConsoleColor.White;
+
+        protected void SetConsoleColor()
+        {
+            this.savedColor = Console.ForegroundColor;
+            Console.ForegroundColor = Color;
+        }
+
+        protected void ResetConsoleColor()
+        {
+            Console.ForegroundColor = savedColor;
+        }
+        #endregion

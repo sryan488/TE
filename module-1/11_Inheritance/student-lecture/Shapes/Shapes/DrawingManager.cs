@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Text;
 
 namespace Shapes
 {
     class DrawingManager
     {
+
         #region Fields
         /// <summary>
         /// A private list of shapes
@@ -104,6 +106,22 @@ Please choose an option: ");
         {
             // TODO 13 Prompt the user for Width, Height, Color and Filled, then add a Rectangle
 
+            int width = GetPositiveInt("Width: ", 1, 30);
+            int height = GetPositiveInt("Height: ", 1, 30);
+            ConsoleColor color = GetColor("Color: ");
+            bool isFilled = GetBool("Do you want the shape filled? ");
+
+
+
+            Rectangle rect = new Rectangle()
+            {
+                Width = width,
+                Height = height,
+                Color = color,
+                IsFilled = isFilled
+            };
+
+            shapes.Add(rect);
 
             Success("New Rectangle was added");
 
@@ -126,6 +144,10 @@ Please choose an option: ");
         public void DrawCanvas()
         {
             // TODO 15 Loop through the shapes and Draw each one.
+            foreach (Shape2D shape in shapes)
+            {
+                shape.Draw;
+            }
 
             Success("*** End of Display ***");
         }

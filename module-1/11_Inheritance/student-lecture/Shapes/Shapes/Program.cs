@@ -12,6 +12,9 @@ namespace Shapes
         // TODO 03 Create a subclass for Rectangle
 
 
+
+            //TODO Handles errors here...
+
         /* *
          * First, Draw 2D Shapes.  Circle and Rectangle will do the trick, but one can imagine triangles and other polygons.
          * 

@@ -7,7 +7,7 @@ namespace Shapes.Models
     /// <summary>
     /// A two-dimensional shape the can be drawn on the screen
     /// </summary>
-    public class Shape2D
+    public class Shape2D : IDrawable //any 2d shape is IDrawable
     {
         public bool IsFilled { get; set; }
         public ConsoleColor Color { get; set; }

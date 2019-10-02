@@ -7,13 +7,13 @@ namespace Shapes
 {
     class DrawingManager
     {
-        // TODO 07 Update the shapes collection to hold IDrawable objects (we should rename it to)
+        // TODO 07 Update the drawableObjects collection to hold IDrawable objects (we should rename it to)
         #region Fields
         /// <summary>
         /// A private list of shapes
         /// </summary>
         /// 
-        private List<Shape2D> shapes = new List<Shape2D>();
+        private List<IDrawable> drawableObjects = new List<IDrawable>();
 
         #endregion
 
@@ -38,6 +38,7 @@ namespace Shapes
     3) Draw the Canvas
     4) List all Shapes
     5) Clear the Canvas
+    6) Add a Graphic
     Q) Quit
 
 Please choose an option: ");
@@ -75,6 +76,10 @@ Please choose an option: ");
                 {
                     ClearCanvas();
                 }
+                else if (input == "6")
+                {
+                    NewGraphic();
+                }
                 else
                 {
                     Error($"'{input}' is an invalid entry. Press enter, then try again.");
@@ -84,24 +89,38 @@ Please choose an option: ");
             }
         }
 
+        private void NewGraphic()
+        {
+            //prompt the user for Glyoh name and color
+            Console.Write("Glyph name: ");
+            string glyphName = Console.ReadLine();
+            ConsoleColor color = GetColor();
+
+            Graphic graphic = new Graphic(glyphName, color);
+
+            drawableObjects.Add(graphic);
+
+            Success("A new Graphic was added");
+        }
+
         /// <summary>
-        /// Clear all the shapes
+        /// Clear all the drawableObjects
         /// </summary>
         private void ClearCanvas()
         {
-            shapes.Clear();
+            drawableObjects.Clear();
             Success("Canvas was cleared");
         }
 
         /// <summary>
-        /// Show the user the list of shapes
+        /// Show the user the list of drawableObjects
         /// </summary>
         private void ListDrawingObjects()
         {
             Success("Shapes:");
-            foreach (Shape2D shape in shapes)
+            foreach (Shape2D objects in drawableObjects)
             {
-                Console.WriteLine($"\t{shape}");
+                Console.WriteLine($"\t{objects}");
             }
         }
 
@@ -118,7 +137,7 @@ Please choose an option: ");
             // TODO 03 Use the new constructor
             Rectangle rect = new Rectangle() { Width = width, Height = height, Color = color, IsFilled = isFilled };
 
-            shapes.Add(rect);
+            drawableObjects.Add(rect);
             Success("New Rectangle was added");
 
         }
@@ -134,21 +153,21 @@ Please choose an option: ");
             bool isFilled = GetBool("Do you want the shape filled? ");
 
             // TODO 04 Use the new constructor
-            Circle circle = new Circle(){Radius=radius, Color=color, IsFilled=isFilled};
+            Circle circle = new Circle(radius, color, isFilled);
 
-            shapes.Add(circle);
+            drawableObjects.Add(circle);
 
             Success("New Circle was added");
         }
 
         /// <summary>
-        /// Draw all the shapes onto the canvas (Console)
+        /// Draw all the drawableObjects onto the canvas (Console)
         /// </summary>
         public void DrawCanvas()
         {
-            foreach (Shape2D shape in shapes)
+            foreach (IDrawable objects in drawableObjects)
             {
-                shape.Draw();
+                objects.Draw();
             }
 
             Success("*** End of Display ***");

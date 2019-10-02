@@ -17,7 +17,7 @@ namespace Shapes
          * TODO 10 Define a Text class which displays text, make it IDrawable
          * TODO 12 Define a Line class which displays a line, vertical or horizontal, make it IDrawable
 
-         * Are these things shapes?  Do they have Area and Perimeter?
+         * Are these things drawableObjects?  Do they have Area and Perimeter?
          * So let's make an IDrawable and change our collection to a List of IDrawable.
          * */
         static void Main(string[] args)

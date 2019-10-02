@@ -29,6 +29,13 @@ namespace Shapes.Models
         #region Constructors
         // TODO 01 Create a convenience constructor which accepts the necessary initial values
 
+            public Circle(int radius, ConsoleColor color, bool isFilled)
+        {
+            Radius = radius;
+            Color = color; 
+            IsFilled = isFilled;
+        }
+
         #endregion
 
         public override void Draw()

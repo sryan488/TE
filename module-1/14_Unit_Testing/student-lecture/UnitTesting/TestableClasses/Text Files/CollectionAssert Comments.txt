@@ -1,0 +1,8 @@
+﻿        //CollectionAssert
+        //.AllItemsAreNotNull() - Looks at each item in actual collection for not null
+        //.AllItemsAreUnique() - Checks for uniqueness among actual collection
+        //.AreEqual() - Checks to see if two collections are equal (same order and quantity)
+        //.AreEquivalent() - Checks to see if two collections have same element in same quantity, any order
+        //.AreNotEqual() - Opposite of AreEqual
+        //.AreNotEquivalent() - Opposite or AreEqualivent
+        //.Contains() - Checks to see if collection contains a value/object

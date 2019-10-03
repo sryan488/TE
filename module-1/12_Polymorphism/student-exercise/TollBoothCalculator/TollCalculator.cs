@@ -8,7 +8,7 @@ namespace TollBoothCalculator
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("\nVehicle\t   Distance Traveled\t$ cost");
+            Console.WriteLine("\nVehicle\t     Distance Traveled\t $ cost");
             Console.WriteLine("---------------------------------------");
 
             List<IVehicle> vehicles = new List<IVehicle>();

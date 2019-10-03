@@ -7,31 +7,17 @@ namespace Shapes.Models
     /// <summary>
     /// A two-dimensional shape the can be drawn on the screen
     /// </summary>
-    public class Shape2D : IDrawable
+    abstract public class Shape2D : IDrawable
     {
         public bool IsFilled { get; set; }
         public ConsoleColor Color { get; set; }
 
-        virtual public int Area
-        {
-            get
-            {
-                return 0;
-            }
-        }
+        abstract public int Area { get; }
 
-        virtual public int Perimeter
-        {
-            get
-            {
-                return 0;
-            }
-        }
+        abstract public int Perimeter { get; }
 
-        virtual public void Draw()
-        {
+        abstract public void Draw();
 
-        }
 
         public override string ToString()
         {

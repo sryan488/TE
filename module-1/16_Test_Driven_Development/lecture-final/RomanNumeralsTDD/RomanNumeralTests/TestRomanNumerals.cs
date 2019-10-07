@@ -15,6 +15,9 @@ namespace RomanNumeralTests
         [DataRow(500, "D")]
         [DataRow(1000, "M")]
         [DataRow(2, "II")]
+        [DataRow(3, "III")]
+        [DataRow(200, "CC")]
+        [DataRow(3000, "MMM")]
         public void TestRomanNumeral(int numberToTest, string expectedResult)
         {
             // Arrange

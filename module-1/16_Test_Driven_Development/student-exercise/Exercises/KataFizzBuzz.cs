@@ -11,18 +11,26 @@ namespace Exercises
         public string ToFizzBuzz(int numberToTest)
         {
             string result = "";
-            
-            if (numberToTest == 1)
+
+            if (numberToTest < 1 || numberToTest > 100)
             {
-                return "1";
+                return "";
             }
-            if (numberToTest % 3 == 0)
+            if (numberToTest % 15 == 0)
+            {
+                result += "FizzBuzz";
+            }
+            else if (numberToTest % 3 == 0)
             {
                 result += "Fizz";
             }
-            if (numberToTest % 5 == 0)
+            else if (numberToTest % 5 == 0)
             {
                 result += "Buzz";
+            }
+            else if (numberToTest % 15 != 0 && numberToTest >= 1 && numberToTest <= 100)
+            {
+                result += numberToTest;
             }
             return result;
         }

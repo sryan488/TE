@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace RomanNumeralsTDD
 {
@@ -6,60 +7,89 @@ namespace RomanNumeralsTDD
     {
         public string ToRoman(int number)
         {
-            #region Handle multiple (2 or 3) single-character numbers
-
-
+            #region Handle multiple (2 or 3) single-character numbers, re-factored
+            // Also handles combinations of characters
+            Dictionary<int, string> numerals = new Dictionary<int, string>()
+            {
+                {1000, "M"},
+                {900, "CM"},
+                {500, "D"},
+                {400, "CD"},
+                {100, "C"},
+                {90, "XC"},
+                {50, "L"},
+                {40, "XL"},
+                {10, "X"},
+                {9, "IX"},
+                {5, "V"},
+                {4, "IV"},
+                {1, "I"},
+            };
 
             string result = "";
-            if (number < 5)
+
+            foreach (int key in numerals.Keys)
             {
-                for (int i = 1; i <= number; i++)
+                while (number >= key)
                 {
-                    result += "I";
+                    result += numerals[key];
+                    number -= key;
                 }
             }
-            else if (number < 10)
-            {
-                for (int i = 5; i <= number; i += 5)
-                {
-                    result += "V";
-                }
-            }
-            else if (number < 50)
-            {
-                for (int i = 10; i <= number; i += 10)
-                {
-                    result += "X";
-                }
-            }
-            else if (number < 100)
-            {
-                for (int i = 50; i <= number; i += 50)
-                {
-                    result += "L";
-                }
-            }
-            else if (number < 500)
-            {
-                for (int i = 100; i <= number; i += 100)
-                {
-                    result += "C";
-                }
-            }
-            else if (number < 1000)
-            {
-                for (int i = 500; i <= number; i += 500)
-                {
-                    result += "D";
-                }
-            }
-            else  // number >= 1000
-            {
-                for (int i = 1000; i <= number; i += 1000)
-                {
-                    result += "M";
-                }
-            }
+
+            #endregion
+
+
+            #region Handle multiple (2 or 3) single-character numbers
+            //if (number < 5)
+            //{
+            //    for (int i = 1; i <= number; i++)
+            //    {
+            //        result += "I";
+            //    }
+            //}
+            //else if (number < 10)
+            //{
+            //    for (int i = 5; i <= number; i += 5)
+            //    {
+            //        result += "V";
+            //    }
+            //}
+            //else if (number < 50)
+            //{
+            //    for (int i = 10; i <= number; i += 10)
+            //    {
+            //        result += "X";
+            //    }
+            //}
+            //else if (number < 100)
+            //{
+            //    for (int i = 50; i <= number; i += 50)
+            //    {
+            //        result += "L";
+            //    }
+            //}
+            //else if (number < 500)
+            //{
+            //    for (int i = 100; i <= number; i += 100)
+            //    {
+            //        result += "C";
+            //    }
+            //}
+            //else if (number < 1000)
+            //{
+            //    for (int i = 500; i <= number; i += 500)
+            //    {
+            //        result += "D";
+            //    }
+            //}
+            //else  // number >= 1000
+            //{
+            //    for (int i = 1000; i <= number; i += 1000)
+            //    {
+            //        result += "M";
+            //    }
+            //}
 
             return result;
             #endregion

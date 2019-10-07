@@ -16,7 +16,14 @@ namespace Exercises
         */
         public bool Has23(int[] nums)
         {
-            return false;
+            foreach (int i in nums)
+            {
+                if(i == 2 || i == 3)
+                {
+                    return true;
+                }
+            }
+                return false;
         }
     }
 }

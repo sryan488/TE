@@ -17,6 +17,12 @@ namespace Exercises
          */
         public bool NoTriples(int[] nums)
         {
+            int tripCount = 0;
+
+            for (int i = 2; i < nums.Length; i++)
+            {
+                if (nums[i - 2] = t)
+            }
             return false;
         }
     }

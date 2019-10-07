@@ -19,7 +19,14 @@ namespace Exercises
          */
         public int[] FizzArray(int n)
         {
-            return new int[] { };
+            int[]fizzArray = new int[n];
+            for (int i = 0; i < n; i++)
+            {
+                fizzArray[i] = i;
+            }
+                return fizzArray;
+            
+        
         }
     }
 }

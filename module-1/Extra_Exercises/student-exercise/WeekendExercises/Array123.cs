@@ -16,6 +16,19 @@ namespace Exercises
          */
         public bool Array123(int[] nums)
         {
+            for (int i = 2; i < nums.Length; i++)
+            {
+                if (nums[i - 2] == 1)
+                {
+                    if (nums[i - 1] == 2)
+                    {
+                        if (nums[i] ==3)
+                        {
+                            return true;
+                        }
+                    }
+                }
+            }
             return false;
         }
     }

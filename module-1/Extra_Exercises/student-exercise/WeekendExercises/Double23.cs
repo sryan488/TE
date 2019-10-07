@@ -17,8 +17,33 @@ namespace Exercises
          double23([2, 3]) → false
          */
         public bool Double23(int[] nums)
-        {
+        { int twoCount = 0;
+            int threeCount = 0;
+            for (int i = 0; i < nums.Length; i++)
+            {
+            if (nums[i] == 2)
+                {
+                    twoCount++;
+                    {
+                        if (twoCount >= 2)
+                        {
+                            return true;
+                        }
+                    }
+                }
+            else if (nums[i] == 3)
+                {
+                    threeCount++;
+                    {
+                        if(threeCount >= 2)
+                        {
+                            return true;
+                        }
+                    }
+                }
+            }
             return false;
+
         }
     }
 }

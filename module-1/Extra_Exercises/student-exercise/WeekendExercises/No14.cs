@@ -18,7 +18,29 @@ namespace Exercises
          */
         public bool No14(int[] nums)
         {
-            return false;
+            int oneCount = 0;
+            int fourCount = 0;
+
+            for (int i = 0; i < nums.Length; i++)
+            {
+                if (nums[i] == 1)
+                {
+                    oneCount++;
+                }
+            }
+            for (int i = 0; i < nums.Length; i++)
+            {
+                if(nums[i] == 4)
+                {
+                    fourCount++;
+                }
+            }
+            if (oneCount > 0 && fourCount > 0)
+            {
+                return false;
+            }
+            return true;
+
         }
     }
 }

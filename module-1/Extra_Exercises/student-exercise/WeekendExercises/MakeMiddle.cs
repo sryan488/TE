@@ -17,7 +17,7 @@ namespace Exercises
         */
         public int[] MakeMiddle(int[] nums)
         {
-            return new int[] { };
+            return new int[] { nums[nums.Length / 2 - 1], nums[nums.Length / 2] };
         }
     }
 }

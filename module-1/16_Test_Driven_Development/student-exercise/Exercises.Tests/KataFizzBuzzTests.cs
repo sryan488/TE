@@ -10,18 +10,18 @@ namespace Exercises.Tests
     [TestClass]
     public class KataFizzBuzzTests
     {
-        [DataTestMethod]
+        [TestMethod]
         [DataRow(1, "1")]
-        public void TestFizzBuzz(int numberToTest, string expectedResult)
+        public void TestFizzBuzzForOne(int numberToTest, string expectedResult)
         {
             // Arrange
             KataFizzBuzz subject = new KataFizzBuzz();
 
             // Act
-            string actualFB = subject.ToFizzBuzz(numberToTest);
+            string actualFB = subject.ToFizzBuzz(1);
 
             // Assert
-            Assert.AreEqual(expectedResult, actualFB);
+            Assert.AreEqual("1", actualFB);
         }
 
 

@@ -8,9 +8,27 @@ namespace Exercises
 {
     public class KataFizzBuzz
     {
-        public string ToFizzBuzz(int numberToTest)
+        public string TestToFizzBuzzFor3(int numberToTest)
         {
-            return "1";
+            string result = "";
+            
+            if (numberToTest == 1)
+            {
+                return "1";
+            }
+            if (numberToTest % 3 == 0)
+            {
+                result += "Fizz";
+            }
+            return result;
         }
+
+        #region
+        //public string ToFizzBuzz(int numberToTest)
+        //{
+        //  return "1";
+        //}
+        #endregion
+
     }
 } 

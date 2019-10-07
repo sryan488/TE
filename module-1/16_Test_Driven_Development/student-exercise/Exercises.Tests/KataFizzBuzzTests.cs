@@ -13,6 +13,7 @@ namespace Exercises.Tests
         [DataTestMethod]
         [DataRow(1, "1")]
         [DataRow(3, "Fizz")]
+        [DataRow(5, "Buzz")]
         public void TestFizzBuzzForFizz(int numberToTest, string expectedResult)
         {
             // Arrange

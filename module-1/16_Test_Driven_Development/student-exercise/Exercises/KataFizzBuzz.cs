@@ -8,7 +8,7 @@ namespace Exercises
 {
     public class KataFizzBuzz
     {
-        public string TestToFizzBuzzFor3(int numberToTest)
+        public string ToFizzBuzz(int numberToTest)
         {
             string result = "";
             
@@ -20,8 +20,13 @@ namespace Exercises
             {
                 result += "Fizz";
             }
+            if (numberToTest % 5 == 0)
+            {
+                result += "Buzz";
+            }
             return result;
         }
+
 
         #region
         //public string ToFizzBuzz(int numberToTest)

@@ -13,9 +13,11 @@ namespace Exercises.Tests
         [DataTestMethod]
         [DataRow(1, "1")]
         [DataRow(3, "Fizz")]
+        [DataRow(13, "Fizz")]
+        [DataRow(35, "FizzBuzz")]
         [DataRow(5, "Buzz")]
-        [DataRow(15, "FizzBuzz")]
-        [DataRow(22, "22")]
+        [DataRow(51, "Fizz")] //Because 51 is divisible by 3
+        [DataRow(53, "FizzBuzz")]
         [DataRow(0, "")]
         public void TestFizzBuzzForFizz(int numberToTest, string expectedResult)
         {

@@ -16,15 +16,15 @@ namespace Exercises
             {
                 return "";
             }
-            if (numberToTest % 15 == 0)
+            if (numberToTest % 15 == 0 || numberToTest.ToString().Contains("3") && numberToTest.ToString().Contains("5"))
             {
                 result += "FizzBuzz";
             }
-            else if (numberToTest % 3 == 0)
+            else if (numberToTest % 3 == 0 || numberToTest.ToString().Contains("3"))
             {
                 result += "Fizz";
             }
-            else if (numberToTest % 5 == 0)
+            else if (numberToTest % 5 == 0 || numberToTest.ToString().Contains("5"))
             {
                 result += "Buzz";
             }

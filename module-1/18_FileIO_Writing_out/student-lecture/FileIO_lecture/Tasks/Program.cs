@@ -87,7 +87,7 @@ namespace Tasks
         {
             Console.WriteLine("\r\n*** Add a Task ***");
             Console.Write("\tTask name: ");
-            string taskName = Console.ReadLine();
+            string taskName = Console.ReadLine().Replace("|", " ");
 
             DateTime dueDate = DateTime.MinValue;
             while (dueDate == DateTime.MinValue)

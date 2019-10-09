@@ -7,28 +7,63 @@ namespace WordSearch
     {
         static void Main(string[] args)
         {
-            //1. Ask the user for the search string
-            Console.WriteLine("Please enter the search string: ");
-            string search = Console.ReadLine();
+            Directory.SetCurrentDirectory(@"../../../../");
+
+            Console.WriteLine("Please enter the file path: "); //alices_adventures_in_wonderland.txt
+            string filePath = Console.ReadLine();
+
+            Console.WriteLine("Please enter the word to search: ");
+            string search = Console.ReadLine().Trim();
           
-            //2. Ask the user for the file path
-            Console.WriteLine("Please enter the file path: "); //C:\Users\SRyan\git\seanryan-c\module-1\17_FileIO_Reading_in\student-exercise\alices_adventures_in_wonderland.txt
-            string file = Console.ReadLine();
 
-            //3. Open the file
+            Console.WriteLine("Should the search be case sensative? (Y/N)");
+            string caps = Console.ReadLine().ToLower();
 
-             using (StreamReader stream = new StreamReader(file))
-            
-            //4. Loop through each line in the file
-
-            while(!stream.EndOfStream)
+            if (caps == "y")
             {
-                string currentLine = stream.ReadLine();
 
+            
+                int counter = 0;
+                string line = null;
+                using (StreamReader stream = new StreamReader(filePath))
+                while (!stream.EndOfStream)
+                    {
+                        counter++;
+                        line = stream.ReadLine();
+                        line.Trim();
+
+                        if (line.Contains(search))
+                        {
+                            Console.WriteLine($"{counter}) {line}");
+                        }
+
+                    }
+            }
+            else
+            {
+                
+
+                int counter = 0;
+                string line = null;
+                using (StreamReader stream = new StreamReader(filePath))
+                    while (!stream.EndOfStream)
+                    {
+                        counter++;
+                        line = stream.ReadLine();
+                        line.Trim();
+
+                        if (line.Contains(search))
+                        {
+                            Console.WriteLine($"{counter}) {line}");
+                        }
+                        if (line.Contains(search.ToLower()))
+                        {
+                            Console.WriteLine($"{counter}) {line}");
+                        }
+                    }
             }
 
 
-            //5. If the line contains the search string, print it out along with its line number
 
             Console.ReadLine();
         }

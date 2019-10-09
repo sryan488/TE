@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace Exercises
 {
-    class KataPotter
+    public class KataPotter
     {
+        public double GetCost(int[] books)
+        {
+            double sum = 0.0;
+            double[] pricelevels = { 0, 8.0, 15.2, 21.6, 25.6, 30.0 };
+            
+        }        
     }
 }

@@ -5,7 +5,7 @@ using System.IO;
 
 namespace FileAndDirectory.Classes
 {
-    class Navigator
+    public class Navigator
     {
         public void Run()
         {
@@ -51,8 +51,8 @@ namespace FileAndDirectory.Classes
                 Console.Clear();
 
                 // Get current and root directories here...
-                string currentPath = "????";
-                string root = "??";
+                string currentPath = Directory.GetCurrentDirectory();
+                string root = Directory.GetDirectoryRoot(currentPath);
                 bool hasParent = (currentPath != root);
                 Console.WriteLine("Navigate Directories Submenu");
                 Console.WriteLine("----------------------------");
@@ -60,7 +60,7 @@ namespace FileAndDirectory.Classes
                 Console.WriteLine();
 
                 /// Get the list of dirs here...
-                string[] dirs = new string[] { };
+                string[] dirs = Directory.GetDirectories(currentPath);
 
 
                 if (hasParent)
@@ -71,7 +71,8 @@ namespace FileAndDirectory.Classes
                 {
 
                     // Get the relative path here...
-                    string relativePath = "????";
+                    string relativePath = Path.GetRelativePath(currentPath, dirs[i]);
+
                     Console.WriteLine($"{i + 1} - {relativePath}");
 
                 }
@@ -86,7 +87,11 @@ namespace FileAndDirectory.Classes
                 {
                     // Calculate parent folder here, and move there...
 
+                    // This way works too
+                    //DirectoryInfo di = Directory.GetParent(currentPath);
+                    //Directory.SetCurrentDirectory(di.FullName);
 
+                    Directory.SetCurrentDirectory("..");
 
                 }
                 else
@@ -104,14 +109,19 @@ namespace FileAndDirectory.Classes
             Console.Clear();
 
             // Get the current directory here...
-            string currentPath = "????";
+            string currentPath = Directory.GetCurrentDirectory();
             Console.WriteLine("List Files Submenu");
             Console.WriteLine("------------------");
             Console.WriteLine($"Current Directory: {currentPath}");
             Console.WriteLine();
 
             // List all the files here....
-
+            string[] files = Directory.GetFiles(currentPath);
+            foreach(string file in files)
+            {
+                string relativePath =  Path.GetRelativePath(currentPath, file);
+                Console.WriteLine(relativePath);
+            }
 
 
             Console.WriteLine();

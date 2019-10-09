@@ -13,22 +13,27 @@ namespace RomanNumeralsTDD
             {
                 {1000, "M"},
                 {900, "CM"},
-                {500, "D"},
-                {400, "CD"},
                 {100, "C"},
                 {90, "XC"},
                 {50, "L"},
                 {40, "XL"},
                 {10, "X"},
                 {9, "IX"},
-                {5, "V"},
+                {500, "D"},
                 {4, "IV"},
+                {400, "CD"},
+                {5, "V"},
                 {1, "I"},
             };
 
             string result = "";
 
-            foreach (int key in numerals.Keys)
+            List<int> numeralsKeys = new List<int>(numerals.Keys);
+            numeralsKeys.Sort();
+            numeralsKeys.Reverse();
+
+
+            foreach (int key in numeralsKeys)
             {
                 while (number >= key)
                 {

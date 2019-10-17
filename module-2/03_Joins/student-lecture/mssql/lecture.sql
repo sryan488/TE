@@ -1,22 +1,79 @@
 -- ********* INNER JOIN ***********
 
 -- Let's find out who made payment 16666:
+SELECT *
+FROM payment
+WHERE payment_id = 16666
 
 -- Ok, that gives us a customer_id, but not the name. We can use the customer_id to get the name FROM the customer table
+SELECT *
+FROM payment p
+	JOIN customer c ON p.customer_id = c.customer_id
+WHERE payment_id = 16666
 
 -- We can see that the * pulls back everything from both tables. We just want everything from payment and then the first and last name of the customer:
+SELECT p.*, c.last_name, c.first_name
+FROM payment p
+	JOIN customer c ON p.customer_id = c.customer_id
+WHERE payment_id = 16666
 
 -- But when did they return the rental? Where would that data come from? From the rental table, so let’s join that.
+SELECT p.*, c.last_name, c.first_name, r.return_date
+FROM payment p
+	JOIN customer c ON p.customer_id = c.customer_id
+	JOIN rental r ON p.rental_id = r.rental_id
+WHERE payment_id = 16666
 
 -- What did they rent? Film id can be gotten through inventory.
+SELECT p.*, c.last_name, c.first_name, r.return_date, f.title
+FROM payment p
+	JOIN customer c ON p.customer_id = c.customer_id
+	JOIN rental r ON p.rental_id = r.rental_id
+	JOIN inventory i ON r.inventory_id = i.inventory_id
+	JOIN film f ON i.film_id = f.film_id
+WHERE payment_id = 16666
 
 -- What if we wanted to know who acted in that film?
+SELECT p.*, c.last_name, c.first_name, r.return_date, f.title, a.first_name, a.last_name
+FROM payment p
+	JOIN customer c ON p.customer_id = c.customer_id
+	JOIN rental r ON p.rental_id = r.rental_id
+	JOIN inventory i ON r.inventory_id = i.inventory_id
+	JOIN film f ON i.film_id = f.film_id
+	JOIN film_actor fa ON f.film_id = fa.film_id
+	JOIN actor a ON fa.actor_id = a.actor_id
+WHERE payment_id = 16666
 
 -- What if we wanted a list of all the films and their categories ordered by film title
+SELECT f.title Title, c.name Category
+FROM film f 
+	JOIN film_category fc ON f.film_id = fc.film_id
+	JOIN category c ON fc.category_id = c.category_id
+ORDER BY f.title
+
+--Get the category count for each film, order descending count
+SELECT f.title, COUNT(*) 'Number of categories'
+FROM film f 
+	JOIN film_category fc ON f.film_id = fc.film_id
+	JOIN category c ON fc.category_id = c.category_id
+GROUP BY f.title
+ORDER BY 2 DESC
 
 -- Show all the 'Comedy' films ordered by film title
+SELECT f.title Title, c.name Category
+FROM film f 
+	JOIN film_category fc ON f.film_id = fc.film_id
+	JOIN category c ON fc.category_id = c.category_id
+WHERE c.name = 'Comedy'
+ORDER BY f.title
 
 -- Finally, let's count the number of films under each category
+SELECT c.name 'Category', COUNT(*) 'Number of Films'
+FROM film f 
+	JOIN film_category fc ON f.film_id = fc.film_id
+	JOIN category c ON fc.category_id = c.category_id
+GROUP BY c.name
+ORDER BY 'Number of Films' DESC
 
 -- ********* LEFT JOIN ***********
 

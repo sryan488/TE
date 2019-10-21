@@ -103,12 +103,34 @@ Use World
 -- A Left join, selects all records from the "left" table and matches them with records from the "right" table if a matching record exists.
 
 -- Let's display a list of all countries and their capitals, if they have some.
+SELECT ctry.name Country, c.name City
+FROM country ctry
+	JOIN city c ON ctry.capital = c.id
+ORDER BY ctry.name
 
 -- Only 232 rows
 -- But we’re missing entries:
 
 -- There are 239 countries. So how do we show them all even if they don’t have a capital?
 -- That’s because if the rows don’t exist in both tables, we won’t show any information for it. If we want to show data FROM the left side table everytime, we can use a different join:
+SELECT ctry.name Country, c.name City
+FROM country ctry
+	LEFT JOIN city c ON ctry.capital = c.id
+ORDER BY ctry.name
+
+-- RIGHT JOIN also works, if we switch the order thhe tables are listed
+SELECT ctry.name Country, c.name City
+FROM city c
+	RIGHT JOIN country ctry ON c.id = ctry.capital
+ORDER BY ctry.name
+
+-- What would a RIGHT JOIN have gotten us? We get every row from the right table
+SELECT ctry.name Country, c.name City
+FROM country ctry
+	RIGHT JOIN city c ON ctry.capital = c.id
+ORDER BY ctry.name
+
+-- Whoa! 4079 rows... one row for every city, which is the RIGHT table
 
 -- *********** UNION *************
 

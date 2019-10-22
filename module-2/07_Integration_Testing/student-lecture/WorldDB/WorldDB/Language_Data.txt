@@ -1,0 +1,8 @@
+USA|English|True|95
+USA|Spanish|False|25.5
+USA|Cajun|False|5
+CAN|English|True|54
+CAN|French|True|52
+CAN|Ay|False|95
+MEX|Spanish|True|99.4
+USA|Klingon|False|23.2

@@ -1,0 +1,8 @@
+﻿USA|United States|North America
+CAN|Canada|North America
+MEX|Mexico|North America
+IRL|Ireland|Europe
+TUR|Turkey|Asia
+GBR|United Kingdom|Europe
+SCT|Scotland|Europe
+ITA|Italy|Europe

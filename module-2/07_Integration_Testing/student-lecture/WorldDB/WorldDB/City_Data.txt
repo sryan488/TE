@@ -1,0 +1,12 @@
+1|USA|Maryland|Accident|316
+2|IRL|County Wexford|Bastardstown|191
+3|TUR||Batman|447106
+4|GBR|Devon|Beer|1317
+5|USA|Pennsylvania|Bird-in-Hand|402
+6|USA|Tennessee|Bitter End|0
+7|CAN|Newfoundland|Blow Me Down|928
+8|USA|North Carolina|Boogertown|0
+9|ITA|Piedmont|Bra|29645
+10|SCT||Brokenwynd|100
+11|GBR|South Gloucestershire|Catbrain|75
+12|MEX|Yucatan|Poop|469

@@ -17,7 +17,7 @@ namespace Mod1Assessment
             }
         }
 
-
+        // Creating parameters to be used
         public FlowerShopOrder(string bouquetType, int numberOfRoses)
         {
             this.BouquetType = bouquetType;

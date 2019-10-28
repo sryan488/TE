@@ -27,7 +27,19 @@ namespace Communities.Tests
                 command.ExecuteNonQuery();
             }
         }
+        public void GetAllCommunituesTest()
+        {
+            // Arrange
 
+
+            // Act
+            communites = dao.GetAllReservations();
+
+            // Assert
+            Assert.AreEqual();
+        }
+
+        f
         [TestCleanup]
         public void Cleanup()
         {

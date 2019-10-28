@@ -1,0 +1,14 @@
+html {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+h2 {
+  background-color: #ECA008;
+  color: White; 
+}
+p {
+  background-color: lightgray;
+}
+#secondP {
+  color: purple;
+  font-weight: bold;
+}

@@ -1,0 +1,23 @@
+*{
+  font-weight: normal;
+
+}
+html {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+h2 {
+  background-color: #ECA008;
+  color: White; 
+}
+p {
+  color: aliceblue;
+  background-color: lightgray;
+}
+#secondP {
+  color: purple;
+  font-weight: bold;
+}
+
+div#messingAround > p{
+  background-color: crimson;
+}

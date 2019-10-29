@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Transactions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -27,25 +28,23 @@ namespace Communities.Tests
                 command.ExecuteNonQuery();
             }
         }
-        public void GetAllCommunituesTest()
-        {
-            // Arrange
-
-
-            // Act
-            communites = dao.GetAllReservations();
-
-            // Assert
-            Assert.AreEqual();
-        }
-
-        f
         [TestCleanup]
         public void Cleanup()
         {
             transaction.Dispose();
         }
+        public void GetAllCommunituesTest()
+        {
+            // Arrange
+            IList<Community> communities;
+            ICommunityDao dao = new CommunitySqlDao(ConnectionString);
 
+            // Act
+            communities = dao.GetAllCommunities();
+
+            // Assert
+            Assert.AreEqual(200, communities.Count);
+        }
         protected int GetRowCount(string table)
         {
             using (SqlConnection conn = new SqlConnection(ConnectionString))

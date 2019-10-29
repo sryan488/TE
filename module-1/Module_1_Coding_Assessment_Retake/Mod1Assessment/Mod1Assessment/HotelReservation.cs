@@ -29,31 +29,24 @@ namespace Mod1Assessment
             if (usedMinibar == true)
             {
                 additionalFees = 12.99M;
-                if (requiresCleaning == false)
+                if(requiresCleaning == true)
                 {
-                    additionalFees = additionalFees + 12.99M;
+                    additionalFees = additionalFees + (34.99M * 2);
                 }
             }
             else if (requiresCleaning == true)
             {
                 additionalFees = 34.99M;
-                if (usedMinibar == false)
-                {
-                    additionalFees = additionalFees + 34.99M;
-                }
-
             }
-            else if (usedMinibar == true && requiresCleaning == true)
+            else if (usedMinibar == true)
             {
-                additionalFees = additionalFees + 12.99M + 69.98M;
+                additionalFees = 12.99M;   
             }
             else
             {
                 additionalFees = 0M;
             }
                 return additionalFees;
-            
-
         }
         public override string ToString()
         {

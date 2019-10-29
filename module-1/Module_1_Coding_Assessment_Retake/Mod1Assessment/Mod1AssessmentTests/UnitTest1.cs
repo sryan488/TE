@@ -17,20 +17,20 @@ namespace Mod1AssessmentTests
             // Assert
             Assert.AreEqual(119.98M, actualResult);
         }
-       // [DataTestMethod]
-        //[DataRow(true, true, 68.99)]
-        //[DataRow(true, false, 132.97)]
-        //[DataRow(false, true, 202.92)]
-        //[DataRow(false, false, 119.98)]
-       // public void TestActualTotal(bool usedMinibar, bool requiresCleaning, decimal expectedResult)
-        //{
-         //   HotelReservation hr = new HotelReservation("Tommy", 2);
+        [DataTestMethod]
+        [DataRow(true, true, 82.97)]
+        [DataRow(true, false, 34.99)]
+        [DataRow(false, true, 12.99)]
+        [DataRow(false, false, 0.00)]
+        public void TestActualTotal(bool usedMinibar, bool requiresCleaning, double expectedResult)
+        {
+            HotelReservation hr = new HotelReservation("Tommy", 1);
 
-         //   decimal actaulResult = hr.AdditionalFees(usedMinibar, requiresCleaning);
+            decimal actaulResult = hr.AdditionalFees(usedMinibar, requiresCleaning);
 
-         //   decimal expectedDecimalResult = decimal.Parse(expectedResult.ToString());
+            decimal expectedDecimalResult = decimal.Parse(expectedResult.ToString());
 
-          //  Assert.AreEqual(expectedResult, actaulResult);
-        //}
+            Assert.AreEqual(expectedDecimalResult, actaulResult);
+        }
     }
 }

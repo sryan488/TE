@@ -14,4 +14,58 @@
     font-family: Tahoma, Verdana, Segoe, sans-serif;
   }
   
-  
+  aside {
+    position: fixed;
+    width: 200px;
+  }
+
+  main{
+    margin-left: 200px;
+    border-left: 1px solid var(--light-blue);
+    padding-left: 12px;
+  }
+
+  aside > img {
+    width: 160px;
+    margin: 0 20px 20px 20px;
+  }
+
+  main > img {
+    width: 100%;
+  }
+
+  nav > ul {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+  }
+
+  nav > ul > li {
+    list-style: none;
+    margin: auto;
+    text-transform: uppercase; 
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--light-blue);
+    width: 120px;
+  }
+
+  nav > ul > li:last-child {
+    border-bottom: none;
+  }
+
+  nav a {
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--blue);
+   }
+
+   main > section > div {
+     display: inline-block;
+     width: 33%;
+   }
+
+   main > section > div > h2 {
+    color: var(--light-green);
+   }

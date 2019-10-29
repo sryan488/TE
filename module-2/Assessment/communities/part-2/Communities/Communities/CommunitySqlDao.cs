@@ -34,19 +34,18 @@ namespace Communities
 
         public void Save(Community newCommunity)
         {
+            using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                    using (SqlConnection conn = new SqlConnection(connectionString))
-                    {
-                        conn.Open();
+                conn.Open();
 
-                        SqlCommand cmd = new SqlCommand("INSERT INTO communites (id, name, latitude, longitude, created) VALUES (@n, @lo, @la, @c); SELECT @@IDENTITY", conn);
-                        cmd.Parameters.AddWithValue("@n", newCommunity.Name);
-                        cmd.Parameters.AddWithValue("@lo", newCommunity.Longitude);
-                        cmd.Parameters.AddWithValue("@la", newCommunity.Latitude);
-                        cmd.Parameters.AddWithValue("@c", newCommunity.Created);
+                SqlCommand cmd = new SqlCommand("INSERT INTO communities (name, created, latitude, longitude, live) VALUES (@n, @c, @la, @lo, @iL); SELECT @@IDENTITY;", conn);
+                cmd.Parameters.AddWithValue("@n", newCommunity.Name);
+                cmd.Parameters.AddWithValue("@c", newCommunity.Created);
+                cmd.Parameters.AddWithValue("@la", newCommunity.Latitude);
+                cmd.Parameters.AddWithValue("@lo", newCommunity.Longitude);
+                cmd.Parameters.AddWithValue("@iL", newCommunity.IsLive);
 
-                     return Convert.ToInt32(cmd.ExecuteScalar());
-                }
+                newCommunity.Id = Convert.ToInt32(cmd.ExecuteScalar());
             }
         }
         private Community RowToCommunity(SqlDataReader r)
@@ -55,7 +54,7 @@ namespace Communities
             string name = Convert.ToString(r["name"]);
             DateTime created = Convert.ToDateTime(r["created"]);
             decimal latitude = Convert.ToDecimal(r["latitude"]);
-            decimal longitude = Convert.ToDecimal(r["visitors"]);
+            decimal longitude = Convert.ToDecimal(r["longitude"]);
             bool isLive = Convert.ToBoolean(r["live"]);
             c = new Community(name, created, latitude, longitude, isLive);
 

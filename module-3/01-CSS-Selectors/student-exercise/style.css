@@ -13,5 +13,9 @@
     box-sizing: border-box;
     font-family: Tahoma, Verdana, Segoe, sans-serif;
   }
+  aside img {
+    width: 150px;
+    height: 150px;
+  }
   
   

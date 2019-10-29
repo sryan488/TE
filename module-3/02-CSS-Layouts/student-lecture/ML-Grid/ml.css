@@ -1,0 +1,85 @@
+:root {
+    --orange: #f7921c;
+    --grey: #f2f2f4;
+    --dark-grey: rgba(50, 53, 62, 0.05);
+    --black: rgba(60, 60, 60, 1);
+  }
+
+* {
+    font-family: Tahoma, Verdana, Segoe, sans-serif;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+}
+
+  body {
+      display: grid;
+      grid-template-columns: .5fr 2fr 2fr .5fr;
+      grid-template-areas:
+        " . intro intro . "
+        ". services services ."
+        ". border border ."
+        ". info contact .";
+      grid-gap: 25px;
+  }
+
+  #welcome {
+    grid-area: intro;
+    border-bottom: 1px solid darkblue;
+  }
+  #services {
+    grid-area: services;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-color: aliceblue;
+    border-radius: 20px;
+    padding: 20px;
+  }
+
+  .service{
+    flex-basis: 200px;
+    /* grid-area: service1; */
+  }
+
+  #empty {
+    grid-area: border;
+    border-bottom: 1px solid darkblue;
+  }
+  #companyinfo {
+    grid-area: info;
+  }
+   form {
+     display: flex;
+     flex-direction: column;
+   }
+
+   .form-group {
+    display: flex;
+    margin-bottom: 10px;
+   }
+
+   .form-group > label {
+     width: 100px;
+     text-align: left;
+     padding-right: 10px;
+   }
+
+   .form-group > input, .form-group > textarea {
+     width: 240px;
+   }
+
+  #contact {
+    grid-area: contact;
+  }
+
+  .thumbnail > img {
+    border-radius: 50%;
+  }
+  
+  section > ul {
+    margin-left: -25px;
+  }

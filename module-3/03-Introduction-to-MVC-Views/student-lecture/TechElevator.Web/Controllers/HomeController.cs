@@ -15,7 +15,10 @@ namespace TechElevator.Web.Controllers
         }
 
         // TODO 02: Add a Greeting Action to this controller and its related Home/Greeting view
-
+        public IActionResult Greeting()
+        {
+            return View();
+        }
 
         // TODO 04: Add a Calculators Controller  http://localhost/Calculators/
         // TODO 05: Add an Index view as the default page. Calculate MPH for all KPH from 0 to 100 KPH

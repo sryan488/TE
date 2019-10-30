@@ -4,11 +4,16 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/css/style.css" />
 </head>
-<body>    
-    @{ 
-        // TODO 03: Add a nav bar and logo to the top of every page 
-    }
+<body>
+    <nav>
+        <ul>
+            <li><a asp-controller="Home" asp-action="Index">Home page</a></li>
+            <li><a asp-controller="Home" asp-action="Greeting">Greeting</a></li>
+        </ul>
+    </nav>
+
     @RenderBody()
 </body>
 </html>

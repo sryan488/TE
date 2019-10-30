@@ -10,8 +10,71 @@
 
 html {
     font-size: 16px;
+    background-color: rgba(192, 192, 192, 0.1);
 }
 
-body > header {
-    
+body {
+    margin-left: 8%;
+    margin-right: 8%;
 }
+header > img {
+    width: 25%;
+    height: 25%;
+}
+
+main > h1 {
+    color: var(--grey);
+}
+
+#student-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: 
+    "student-quote student-quote student-picture"
+    "student-profile student-profile student-contact"
+    "experience experience experience";
+    grid-gap: 20px 50px;
+}
+
+#student-quote{
+    grid-area: student-quote;
+    color: var(--grey);
+}
+
+
+#student-picture{
+    grid-area: student-picture;
+}
+
+#student-picture > img {
+    border-radius: 50%;
+}
+
+#student-profile{
+    grid-area: student-profile;
+}
+
+#student-contact{
+    grid-area: student-contact;
+    text-align: center;
+}
+
+#experience{
+    grid-area: experience;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#experience > div {
+    width: 33%;
+    padding: 0 1rem;   
+}
+
+#experience > div > h3 {
+    color: var(--blue);
+}
+
+.page-wrap{
+    background-color: rgba(192, 192, 192, 0.1);
+   }

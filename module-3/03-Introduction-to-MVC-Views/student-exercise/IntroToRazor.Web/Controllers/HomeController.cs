@@ -18,7 +18,7 @@ namespace IntroToRazor.Web.Controllers
         // Sample URLs
         // home/fizzbuzz (defaults to 100)
         // home/fizzbuzz?number=50 (sets number to 50)
-        public IActionResult FizzBuzz(int number = 100)
+        public IActionResult FizzBuzz(int number = 20)
         {
             ViewData["number"] = number;
 

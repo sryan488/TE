@@ -10,6 +10,25 @@
     </ul>
 </nav>
 
-@*
-    REPLACE THIS COMMENT SECTION WITH YOUR UNORDERED LIST
-*@
+<ul id="fibonacci">
+    @{ 
+        int firstN = 0;
+        int secondN = 1;
+        int nextN = 1;
+        while (true)
+        {
+            nextN = firstN + secondN;
+            if (nextN >= (int)ViewData["max"])
+            {
+                break;
+            }
+            else
+            {
+            <li>@nextN</li>
+                firstN = secondN;
+                secondN = nextN;
+                nextN = firstN + secondN;
+                }
+            }
+        }
+</ul>

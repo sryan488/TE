@@ -18,8 +18,6 @@ namespace DecimalToBinary
 
             string[] strings = givenNums.Split(" ");
 
-            }
-
         }
     }
 }

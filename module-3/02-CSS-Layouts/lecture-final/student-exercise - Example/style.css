@@ -1,0 +1,33 @@
+:root {
+    --blue: #00adee;
+    --grey: #505355;
+}
+  
+* {
+    font-family: Tahoma, Verdana, Segoe, sans-serif;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+}
+
+#experience {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+
+}
+
+#experience > div {
+    min-width: 300px;
+    flex-basis: 33%;
+    padding: 0 20px;
+    /* margin: 50px 20px; */
+}
+
+#experience p {
+    text-align: justify;
+}
+

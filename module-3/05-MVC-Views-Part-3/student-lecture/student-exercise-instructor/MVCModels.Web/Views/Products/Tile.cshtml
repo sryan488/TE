@@ -1,12 +1,15 @@
 ﻿@model IEnumerable<Product>
 @{
     ViewData["Title"] = "Tile";
+
+    // TODO 02: Show the Message here...
 }
 <h2>All Products</h2>
 
 <div id="masonry-page">
 
     @{
+        // TODO 05: Add the controller and action name to ViewData so that the partial view knows how to build links
         ViewData["Action"] = "";
         ViewData["Controller"] = "";
     }

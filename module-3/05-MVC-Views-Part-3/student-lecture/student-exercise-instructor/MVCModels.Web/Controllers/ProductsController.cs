@@ -32,7 +32,7 @@ namespace MVCModels.Web.Controllers
             IList<Product> products = productDAO.GetAll(filter, ProductSortOrder.Default);
             string message = $"{products.Count} {(products.Count == 1 ? "product" : "products")} were found.";
 
-            // TODO: Add the message to ViewData, then show it in the view
+            // TODO 01: Add the message to ViewData, then show it in the view
             return View(products);
         }
 
@@ -40,6 +40,7 @@ namespace MVCModels.Web.Controllers
         // GET: products/detail?id=1
         public IActionResult Detail(int id)
         {
+            // TODO 06: What happens if we pass in an Id that does not exist?
             Product product = productDAO.GetById(id);
             return View(product);
         }

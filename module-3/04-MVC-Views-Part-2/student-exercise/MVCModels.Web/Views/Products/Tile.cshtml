@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Product>
+﻿@model IList<Product>
 @{
     ViewData["Title"] = "Tile";
 }
@@ -7,8 +7,8 @@
 <div id="masonry-page">
 
     @{
-        ViewData["Action"] = "";
-        ViewData["Controller"] = "";
+        ViewData["Action"] = "Tile";
+        ViewData["Controller"] = "Products";
     }
     <partial name="_Filters" />
 
@@ -21,84 +21,58 @@
                 when you load the page up. -->
 
         <!-- Standard Product -->
-        <div class="tile  ">
+        @foreach (Product product in Model)
+        {
+            string v = "tile";
 
+            if (product.RemainingStock == 0)
+            {
+                v += " sold-out";
+
+            }
+            if (product.IsTopSeller)
+            {
+                v += " top-seller";
+            }
+        <div class="@v">
+            @if (product.RemainingStock == 0)
+            {
+                <span class="banner">Sold Out</span>
+            }
             <!-- Link to the Detail page using the product id (e.g. Products/Detail/1) -->
-            <a class="product-image" href="#">
-                <img src="/images/product-images/grey-sofa.jpg" />
+            <a class="product-image" asp-controller="Products" asp-action="Detail" asp-route-id="@product.Id">
+                <img src="/images/product-images/@product.ImageName" />
             </a>
             <div class="details">
-                <p class="name"><a href="#">Grey Sofa</a></p>
+                <p class="name">@product.Name</p>
 
                 <!-- .filled will make the star solid -->
                 <div class="rating">
-                    <span class="filled">&#9734;</span>
-                    <span>&#9734;</span>
-                    <span>&#9734;</span>
-                    <span>&#9734;</span>
-                    <span>&#9734;</span>
+                    @for (int i = 1; i <= 5; i++)
+                    {
+                        if (product.AverageRating >= i)
+                        {
+                            <span class="filled">&#9734;</span>
+                        }
+                        else
+                        {
+                            <span>&#9734;</span>
+                        }
+                    }
                 </div>
-
-                <p class="price">$939.00</p>
+                @if (product.IsTopSeller)
+                {
+                    <br />
+                    <p class="product-alert">Top Seller</p>
+                }
+                @if (product.RemainingStock > 0 && product.RemainingStock <= 5)
+                {
+                    <p class="product-alert">@product.RemainingStock remaining!</p>
+                }
+                <p class="price">@($"{product.Price:C}")</p>
             </div>
         </div>
-
-        <!-- Add the .top-seller class if the product is considered a Top Seller -->
-        <div class="tile top-seller ">
-
-            <!-- Link to the Detail page using the product id (e.g. Products/Detail/1) -->
-            <a class="product-image" href="#">
-                <img src="/images/product-images/grey-sofa.jpg" />
-            </a>
-            <div class="details">
-                <p class="name"><a href="#">Grey Sofa</a></p>
-
-                <!-- .filled will make the star solid -->
-                <div class="rating">
-                    <span class="filled">&#9734;</span>
-                    <span class="filled">&#9734;</span>
-                    <span class="filled">&#9734;</span>
-                    <span class="filled">&#9734;</span>
-                    <span>&#9734;</span>
-                </div>
-
-                <!-- Add the Top Seller <br/> and product alert
-            if the product is considered a Top Seller -->
-                <br />
-                <p class="product-alert">Top Seller</p>
-                <!--
-                    Add the X remaining product alert if the remaining
-                    quantity is greater than 0, but less than or equal to 5
-                -->
-                <p class="product-alert">4 remaining!</p>
-                <p class="price">$930.00</p>
-            </div>
-        </div>
-
-        <!-- Add the .sold-out class if the Remaining Stock is 0 -->
-        <div class="tile  sold-out">
-            <!-- Add the Sold Out banner if the Remaining Stock is 0 -->
-            <span class="banner">Sold Out</span>
-
-            <!-- Link to the Detail page using the product id (e.g. Products/Detail/1) -->
-            <a class="product-image" href="#">
-                <img src="/images/product-images/grey-sofa.jpg" />
-            </a>
-            <div class="details">
-                <p class="name"><a href="#">Grey Sofa</a></p>
-
-                <!-- .filled will make the star solid -->
-                <div class="rating">
-                    <span class="filled">&#9734;</span>
-                    <span class="filled">&#9734;</span>
-                    <span class="filled">&#9734;</span>
-                    <span class="filled">&#9734;</span>
-                    <span>&#9734;</span>
-                </div>
-
-                <p class="price">$939.00</p>
-            </div>
-        </div>
-
+        }
+      
     </div>
 </div>

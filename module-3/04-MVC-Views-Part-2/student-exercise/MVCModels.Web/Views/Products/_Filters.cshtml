@@ -14,22 +14,22 @@
         <h3>Refine By</h3>
         <p>Price</p>
         <ul>
-            <li><a href="#">Under $25</a></li>
-            <li><a href="#">$25 to $50</a></li>
-            <li><a href="#">$50 & Above</a></li>
+            <li><a asp-controller="@ViewData["Controller"]" asp-action="@ViewData["Action"]" asp-route-maxPrice="25">Under $25</a></li>
+            <li><a asp-controller="@ViewData["Controller"]" asp-action="@ViewData["Action"]" asp-route-maxPrice="50" asp-route-minPrice="25">$25 to $50</a></li>
+            <li><a asp-controller="@ViewData["Controller"]" asp-action="@ViewData["Action"]" asp-route-minPrice="50">$50 & Above</a></li>
         </ul>
         <p>Avg. Review</p>
         <ul>
-            <li><a class="rating" href="#"><span class="filled">&#9734;</span><span class="filled">&#9734;</span><span class="filled">&#9734;</span><span class="filled">&#9734;</span><span>&#9734;</span> & Up</a></li>
-            <li><a class="rating" href="#"><span class="filled">&#9734;</span><span class="filled">&#9734;</span><span class="filled">&#9734;</span><span>&#9734;</span><span>&#9734;</span> & Up</a></li>
-            <li><a class="rating" href="#"><span class="filled">&#9734;</span><span class="filled">&#9734;</span><span class="filled">&#9734;</span><span>&#9734;</span><span>&#9734;</span> & Up</a></li>
-            <li><a class="rating" href="#"><span class="filled">&#9734;</span><span>&#9734;</span><span>&#9734;</span><span>&#9734;</span><span>&#9734;</span> & Up</a></li>
+            <li><a asp-controller="@ViewData["Controller"]" asp-action="@ViewData["Action"]" asp-route-minRating="4"><span class="filled">&#9734;</span><span class="filled">&#9734;</span><span class="filled">&#9734;</span><span class="filled">&#9734;</span><span>&#9734;</span>& Up</a></li>
+            <li><a asp-controller="@ViewData["Controller"]" asp-action="@ViewData["Action"]" asp-route-minRating="3"><span class="filled">&#9734;</span><span class="filled">&#9734;</span><span class="filled">&#9734;</span><span>&#9734;</span><span>&#9734;</span>& Up</a></li>
+            <li><a asp-controller="@ViewData["Controller"]" asp-action="@ViewData["Action"]" asp-route-minRating="2"><span class="filled">&#9734;</span><span class="filled">&#9734;</span><span>&#9734;</span><span>&#9734;</span><span>&#9734;</span>& Up</a></li>
+            <li><a asp-controller="@ViewData["Controller"]" asp-action="@ViewData["Action"]" asp-route-minRating="1"><span class="filled">&#9734;</span><span>&#9734;</span><span>&#9734;</span><span>&#9734;</span><span>&#9734;</span>& Up</a></li>
         </ul>
         <p>Category</p>
         <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Apparel</a></li>
-            <li><a href="#">Jewelry</a></li>
-            <li><a href="#">Garden</a></li>
+            <li><a asp-controller="@ViewData["Controller"]" asp-action="@ViewData["Action"]" asp-route-category="Home">Home</a></li>
+            <li><a asp-controller="@ViewData["Controller"]" asp-action="@ViewData["Action"]" asp-route-category="Apparel">Apparel</a></li>
+            <li><a asp-controller="@ViewData["Controller"]" asp-action="@ViewData["Action"]" asp-route-category="Jewelry">Jewelry</a></li>
+            <li><a asp-controller="@ViewData["Controller"]" asp-action="@ViewData["Action"]" asp-route-category="Garden">Garden</a></li>
         </ul>
     </div>

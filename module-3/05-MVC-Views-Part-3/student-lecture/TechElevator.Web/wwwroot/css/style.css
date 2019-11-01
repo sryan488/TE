@@ -1,0 +1,68 @@
+﻿* {
+    box-sizing: border-box;
+    font-family: Calibri;
+}
+
+img#logo {
+    width: 50%;
+    margin: 0px 25%;
+}
+
+img#moviePoster {
+    width: 768px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    padding-left: 0px;
+    align-items: center;
+}
+
+    nav ul li {
+        padding: 0;
+        margin: 5px;
+        width: 80%;
+        background-color: #ccc;
+        text-align: center;
+    }
+    nav ul li a {
+        display: inline-block;
+        padding: 10px;
+        height: 100%;
+        width: 100%;
+        text-decoration: none;
+        color: blue;
+    }
+
+        nav ul li:hover {
+            background-color: lightblue;
+        }
+
+body {
+    background-color: antiquewhite;
+    display: grid;
+    /*The minmax() CSS function defines a size range greater than or equal to min and less than or equal to max. It is used with CSS Grids. https://developer.mozilla.org/en-US/docs/Web/CSS/minmax */
+    grid-template-columns: 150px 1fr minmax(min-content, 150px);
+    grid-template-areas: "menu main aside";
+}
+
+    body > nav {
+        grid-area: menu;
+    }
+
+    body > main {
+        grid-area: main;
+    }
+
+    body > aside {
+        grid-area: aside;
+    }
+
+    body > aside > div {
+        border: 1px solid darkblue;
+        padding: 5px;
+        background-color: lightgray;
+        color: darkblue;
+    }

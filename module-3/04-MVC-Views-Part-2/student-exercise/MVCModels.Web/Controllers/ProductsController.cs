@@ -30,6 +30,10 @@ namespace MVCModels.Web.Controllers
         public IActionResult Tile(ProductFilter filter)
         {
             IList<Product> products = productDAO.GetAll(filter, ProductSortOrder.Default);
+            string message = $"{products.Count} {(products.Count == 1 ? "product" : "products")} were found.";
+
+            ViewData["message"] = message;
+
             return View(products);
         }
 
@@ -38,6 +42,11 @@ namespace MVCModels.Web.Controllers
         public IActionResult Detail(int id)
         {
             Product product = productDAO.GetById(id);
+
+            if (product == null)
+            {
+                return NotFound();
+            }
             return View(product);
         }
     }

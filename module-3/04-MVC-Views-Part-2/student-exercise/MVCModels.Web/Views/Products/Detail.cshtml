@@ -6,28 +6,42 @@
 
 <!-- Container for the Product -->
 <div id="product-detail">
-    <img src="/images/product-images/grey-sofa.jpg" />
+    <img src="~/images/product-images/@Model.ImageName" alt="@Model.Name" />
     <div class="product-description">
         <h3>
-            Grey Sofa
+            @Model.Name
         </h3>
 
-        <!-- .filled will make the star solid -->
+        @Model.AverageRating
+        <!-- .filled will make the star solid, use a loop -->
         <div class="rating">
-            <span class="filled">&#9734;</span>
-            <span class="filled">&#9734;</span>
-            <span>&#9734;</span>
-            <span>&#9734;</span>
-            <span>&#9734;</span>
+            @for (int i = 1; i <= 5; i++)
+            {
+                if (Model.AverageRating >= i)
+                {
+                    <span class="filled">&#9734;</span>
+                }
+                else
+                {
+                    <span>&#9734;</span>
+                }
+            }
         </div>
 
         <!-- Include this if the product has a Remaining Stock of 5 or less -->
-        <p class="alert-remaining">BUY NOW! Only 4 left!</p>
-        <p class="description">Large four seater grey sofa.</p>
-        <p class="price">$939.00</p>
+        <p class="alert-remaining">BUY NOW! Only @Model.RemainingStock left!</p>
+        <p class="description">@Model.Description</p>
+        <p class="price">@Model.Price</p>
 
         <!-- If item is in stock -->
-        <button class="action">Add to Cart</button>
+        @if (Model.RemainingStock > 0)
+        {
+         <button class="action">Add to Cart</button>
+        }
+        else
+        {
+         <button disabled>Sold Out</button>
+        }
         <!-- OR if item is out of stock -->
         <!--<button disabled>Sold Out</button>-->
 

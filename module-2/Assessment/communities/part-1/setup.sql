@@ -1,4 +1,4 @@
--- Switch to the system (aka master) database
+  -- Switch to the system (aka master) database
 USE master;
 GO
 

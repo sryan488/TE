@@ -37,8 +37,10 @@ namespace Forms.Web
             /**** DEPENDENCY INJECTION *****/
             // TODO 01: Configure Dependency Injection (DI) in Startup.cs.
             // First, find the connection string in AppSettings.json using the Configuration object
+            string connecttionString = Configuration.GetConnectionString("World");
 
             // Then tell the DI Container what "implementation" to create whenever it is asked for a "service"
+            services.AddScoped<ICityDAO, CitySqlDAO>(d => new CitySqlDAO(connecttionString));
 
         }
 

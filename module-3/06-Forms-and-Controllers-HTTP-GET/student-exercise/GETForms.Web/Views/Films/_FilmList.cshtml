@@ -1,0 +1,16 @@
+﻿@model IList<Film>
+    <table>
+        <thead>
+            <tr>
+                <td>Title Description Release Year Length Rating</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Film film in Model)
+            {
+                <tr>
+                    <td>@film.Title @film.Description @film.ReleaseYear @film.Length @film.Rating")</td>
+                </tr>
+            }
+        </tbody>
+    </table>

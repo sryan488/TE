@@ -44,6 +44,7 @@ namespace Forms.Web
 
             // Then tell the DI Container what "implementation" to create whenever it is asked for a "service"
             services.AddScoped<ICityDAO, CitySqlDAO>(d => new CitySqlDAO(connectionString));
+            services.AddScoped<ICountryDAO, CountrySqlDAO>(d => new CountrySqlDAO(connectionString));
 
         }
 

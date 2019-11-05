@@ -4,8 +4,7 @@ namespace Communities
 {
     public class Community
     {
-        public Community()
-        { }
+        public Community(){ }
 
         public Community(string name, DateTime created, decimal latitude, decimal longitude, bool isLive)
         {

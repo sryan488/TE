@@ -31,5 +31,17 @@ namespace GETForms.Web.Models
         /// The film's rating.
         /// </summary>
         public string Rating { get; set; }
+
+        public Film() { }
+
+        public Film(string title, string description, int releaseYear, int length,string rating)
+        {
+            Title = title;
+            Description = description;
+            ReleaseYear = releaseYear;
+            Length = length;
+            Rating = rating;
+        }
+
     }
 }

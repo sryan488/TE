@@ -1,0 +1,11 @@
+﻿@model Actor
+
+<form method="get" asp-controller="Actors" asp-action="SearchResult">
+    <table>
+        <tr>
+            <td><label asp-for="LastName">Last Name:</label></td>
+            <td><input type="text" asp-for="LastName" /></td>
+            <td><input type="submit" value="Search" /></td>
+        </tr>
+    </table>
+</form>

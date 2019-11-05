@@ -1,0 +1,16 @@
+﻿@model IList<Actor>
+<table>
+    <thead>
+        <tr>
+            <td>Name</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Actor actor in Model)
+        {
+            <tr>
+                <td>@actor.FirstName @actor.LastName</td>
+            </tr>
+        }
+    </tbody>
+</table>

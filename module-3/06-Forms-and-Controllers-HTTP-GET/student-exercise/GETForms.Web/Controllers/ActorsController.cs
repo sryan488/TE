@@ -10,24 +10,33 @@ namespace GETForms.Web.Controllers
 {
     public class ActorsController : Controller
     {
+
+        private IActorDAO actorDAO;
+        public ActorsController(IActorDAO actorDAO)
+        {
+            this.actorDAO = actorDAO;
+        }
+
         /// <summary>
         /// The request to display an empty search page.
         /// </summary>
         /// <returns></returns>
-        public ActionResult Index()
+        public IActionResult Index()
         {
             return View();
         }
+
 
         /// <summary>
         /// The request to display search results.
         /// </summary>
         /// <param name="request">A request model that contains the search parameters.</param>
         /// <returns></returns>
-        public ActionResult SearchResult(/*ActorSearch request */)
+        public IActionResult SearchResult(string LastName)
         {
             /* Call the DAL and pass the values as a model back to the View */
-            return null;
+            IList<Actor> actor = actorDAO.FindActors(LastName);
+            return View(actor);
         }
     }
 }

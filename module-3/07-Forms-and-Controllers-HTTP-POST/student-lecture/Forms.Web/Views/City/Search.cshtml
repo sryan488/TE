@@ -12,7 +12,8 @@
     <table>
         <tr>
             <td><label asp-for="CountryCode">Country</label> </td>
-            <td><input type="text" asp-for="CountryCode" /></td>
+            @*<td><input type="text" asp-for="CountryCode" /></td>*@
+            <td><select asp-for="CountryCode" asp-items="Model.CountryList"></select></td>
         </tr>
         <tr>
             <td><label asp-for="District">District</label> </td>

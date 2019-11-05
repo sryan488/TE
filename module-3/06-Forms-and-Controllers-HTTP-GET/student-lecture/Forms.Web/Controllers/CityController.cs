@@ -15,17 +15,28 @@ namespace Forms.Web.Controllers
         /**** DEPENDENCY INJECTION *****/
         // TODO 01: Implement DI by creating contructor arguments and saving off the DAOs in a private variable.
         // Also, get rid of the connection string
-        private string connectionString = "Data Source=.\\SQLEXPRESS;Initial Catalog=World;Integrated Security=True";
 
         private ICityDAO cityDAO;
-        public CityController()
+        public CityController(ICityDAO cityDAO)
         {
-            this.cityDAO = new CitySqlDAO(connectionString);
+            this.cityDAO =cityDAO;
         }
 
         public IActionResult Index()
         {
             IList<City> cities = cityDAO.GetCities();
+            return View(cities);
+        }
+
+        public IActionResult Search(CitySearchVM vm)
+        {
+            vm.Cities = cityDAO.GetCities(vm.CountryCode, vm.District);
+            return View(vm);
+        }
+
+        public IActionResult SearchResults(string countryCode, string district)
+        {
+           IList<City> cities = cityDAO.GetCities(countryCode, district);
             return View(cities);
         }
 

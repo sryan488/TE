@@ -9,7 +9,7 @@ namespace GETForms.Web.DAL
 {
     public class ActorDAO : IActorDAO
     {
-        private string connectionString;
+        private readonly string connectionString;
 
         public ActorDAO(string connectionString)
         {
@@ -34,7 +34,8 @@ namespace GETForms.Web.DAL
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    actors.Add(MapRowToActor(reader));
+                    Actor actor = MapRowToActor(reader);
+                    actors.Add(actor);
                 }
             }
 

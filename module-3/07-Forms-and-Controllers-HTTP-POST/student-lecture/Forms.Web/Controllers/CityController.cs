@@ -15,9 +15,11 @@ namespace Forms.Web.Controllers
         /**** DEPENDENCY INJECTION *****/
         // Implement DI by creating contructor arguments and saving off the DAOs in a private variable.
         private ICityDAO cityDAO;
-        public CityController(ICityDAO cityDAO)
+        private ICountryDAO countryDAO;
+        public CityController(ICityDAO cityDAO, ICountryDAO countryDAO)
         {
             this.cityDAO = cityDAO;
+            this.countryDAO = countryDAO;
         }
 
         public IActionResult Index()
@@ -33,6 +35,11 @@ namespace Forms.Web.Controllers
             vm.Cities = cityDAO.GetCities(vm.CountryCode, vm.District);
 
             // TODO 05: Set the CountryList property on the VM for dropdown display
+            IList<Country> countries = countryDAO.GetCountries();
+            vm.CountryList = new SelectList(countries, "Code", "Name");
+
+            List<SelectListItem> selectListItems = new List<SelectListItem>();
+            //selectListItems.Add(new SelectListItem("Saturn", "Saturn"))
 
             return View(vm);
         }

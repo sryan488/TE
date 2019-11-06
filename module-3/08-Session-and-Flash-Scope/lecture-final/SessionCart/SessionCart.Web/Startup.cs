@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Forms.Web.DAL;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using SessionCart.Web.DAL;
 
-namespace Forms.Web
+namespace SessionCart.Web
 {
     public class Startup
     {
@@ -27,24 +27,32 @@ namespace Forms.Web
             services.Configure<CookiePolicyOptions>(options =>
             {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
-                options.CheckConsentNeeded = context => true;
+                options.CheckConsentNeeded = context => false;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            // TODO 01a: Demo Session setup.
+            // Enable session for the MVC Application
+            services.AddDistributedMemoryCache();
+            services.AddSession(options =>
+            {
+                // Sets session expiration to 20 minuates
+                options.IdleTimeout = TimeSpan.FromMinutes(20);
+                options.Cookie.HttpOnly = true;
+            });
+
+
+
+            // TODO 01c: Also Note Dependency Injection
+            //services.AddTransient<IProductDAO, FakeProductDAO>(); //<-- dependency injection
+            // ** Or **
+            services.AddScoped<IProductDAO, FakeProductDAO>(d => new FakeProductDAO());
+
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
-            // TODO 08: Globally add auto-validation for all controllers and post methods
+            // Globally add auto-validation for all controllers and post methods
             services.AddMvc(options => options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute())).SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-
-
-            /**** DEPENDENCY INJECTION *****/
-            // Configure Dependency Injection (DI) in Startup.cs.
-            // First, find the connection string in AppSettings.json using the Configuration object
-            string connectionString = Configuration.GetConnectionString("World");
-
-            // Then tell the DI Container what "implementation" to create whenever it is asked for a "service"
-            services.AddScoped<ICityDAO, CitySqlDAO>(d => new CitySqlDAO(connectionString));
-            services.AddScoped<ICountryDAO, CountrySqlDAO>(d => new CountrySqlDAO(connectionString));
 
         }
 
@@ -62,6 +70,9 @@ namespace Forms.Web
 
             app.UseStaticFiles();
             app.UseCookiePolicy();
+
+            // TODO 01b: Demo Session setup. This must go BEFORE UseMvc!
+            app.UseSession();
 
             app.UseMvc(routes =>
             {

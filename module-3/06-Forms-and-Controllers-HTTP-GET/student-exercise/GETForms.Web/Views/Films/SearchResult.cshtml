@@ -1,9 +1,9 @@
-﻿@model IList<Film>
+﻿@model FilmSearchVM
 @{
     ViewData["Title"] = "SearchResult";
 }
 
-<partial name="_SearchBox" model="@null" />
+<partial name="_SearchBox" model="Model" />
 
 <partial name="_FilmList" model="Model" />
 

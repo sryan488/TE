@@ -2,14 +2,22 @@
     <table>
         <thead>
             <tr>
-                <td>Title Description Release Year Length Rating</td>
+                <td>Title</td>
+                <td>Description</td>
+                <td>Release Year</td>
+                <td>Length</td>
+                <td>Rating</td>
             </tr>
         </thead>
         <tbody>
             @foreach (Film film in Model)
             {
                 <tr>
-                    <td>@film.Title @film.Description @film.ReleaseYear @film.Length @film.Rating")</td>
+                    <td>@film.Title</td>
+                    <td>@film.Description</td>
+                    <td>@film.ReleaseYear</td>
+                    <td>@film.Length</td>
+                    <td>@film.Rating</td>
                 </tr>
             }
         </tbody>

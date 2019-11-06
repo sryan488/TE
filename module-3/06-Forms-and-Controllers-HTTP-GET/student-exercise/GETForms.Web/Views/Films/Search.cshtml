@@ -3,4 +3,19 @@
     ViewData["Title"] = "Search";
 }
 
-<partial name="_SearchBox" model="@null" />
+<form method="get" asp-controller="Films" asp-action="Search">
+    <table>
+        <tr>
+            <td><label asp-for="MinLength">Minimum Length:</label></td>
+            <td><input type="text" asp-for="MinLength" /></td>
+            <td><label asp-for="MaxLength">Maximum Length:</label></td>
+            <td><input type="text" asp-for="MaxLength" /></td>
+            <td><label asp-for="Genres"></label></td>
+            <td><select asp-for="Genres" asp-items="Model.GenreList"></select></td>
+            <td><input type="submit" value="Search" /></td>
+        </tr>
+    </table>
+</form>
+
+
+<partial name="_FilmList" model="Model.Films" />

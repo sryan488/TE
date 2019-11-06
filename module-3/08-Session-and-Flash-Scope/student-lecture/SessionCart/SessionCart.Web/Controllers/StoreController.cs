@@ -51,6 +51,49 @@ namespace SessionCart.Web.Controllers
         [HttpGet]
         public IActionResult Index()
         {
+            // Get from session, the last time accessed
+            string timeString = HttpContext.Session.GetString("Access");
+
+            string message;
+            if (timeString == null || timeString.Length == 0)
+            {
+                message = "Welcome!";
+            }
+            else
+            {
+                DateTime time = Convert.ToDateTime(timeString);
+                message = $"Welcome back! You were here {(DateTime.Now - time).TotalSeconds:N2} seconds ago.";
+            }
+
+            ViewData["Message"] = message;
+
+
+            // For demo purposes, create and populate a shopping cart
+            IList<Product> products = productDAO.GetProducts();
+
+            ShoppingCart cart = new ShoppingCart();
+            for (int i = 0; i < products.Count; i++)
+            {
+                cart.AddToCart(products[i], i + 1);
+            }
+
+            // serializes the cart object into a string for saving into Session
+            string cartJson = JsonConvert.SerializeObject(cart);
+
+            // Save the cart string into session
+            HttpContext.Session.SetString("Cart", cartJson);
+
+            ///////////////////////////////////////////////////////////////////////
+
+            // Now Get the Cart string into session
+            string s = HttpContext.Session.GetString("Cart");
+
+            // Now de-serialize it into a new cart object
+            ShoppingCart anotherCart = JsonConvert.DeserializeObject<ShoppingCart>(s);
+
+            //update session with the *new* last time accessed
+            HttpContext.Session.SetString("Access", DateTime.Now.ToString());
+
             return View();
         }
     }

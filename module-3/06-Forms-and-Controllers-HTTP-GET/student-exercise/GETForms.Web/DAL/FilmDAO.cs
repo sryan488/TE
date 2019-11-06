@@ -9,7 +9,7 @@ namespace GETForms.Web.DAL
 {
     public class FilmDAO : IFilmDAO
     {
-        private string connectionString;
+        private readonly string connectionString;
 
         public FilmDAO(string connectionString)
         {
@@ -62,6 +62,7 @@ namespace GETForms.Web.DAL
                 cmd.Parameters.AddWithValue("@category_name", genre);
                 cmd.Parameters.AddWithValue("@minLength", minLength);
                 cmd.Parameters.AddWithValue("@maxLength", maxLength);
+                    
 
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())

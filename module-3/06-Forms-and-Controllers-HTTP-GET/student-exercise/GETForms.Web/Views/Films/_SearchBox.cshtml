@@ -1,5 +1,6 @@
 ﻿@model FilmSearchVM
 
+
 <form method="get" asp-controller="Films" asp-action="SearchResult">
     <table>
         <tr>
@@ -7,9 +8,21 @@
             <td><input type="text" asp-for="MinLength" /></td>
             <td><label asp-for="MaxLength">Maximum Length:</label></td>
             <td><input type="text" asp-for="MaxLength" /></td>
-            <td><label asp-for="GenreList">Genre:</label></td>
-            <td><select asp-for="GenreList" asp-items="Model.GenreList"></select></td>
+            <td><label asp-for="Genres"></label></td>
+            <td><select asp-for="Genres" asp-items="Model.GenreList"></select></td>
             <td><input type="submit" value="Search" /></td>
         </tr>
     </table>
 </form>
+
+<table>
+    <thead>
+        <tr>
+            <td>Title</td>
+            <td>Description</td>
+            <td>Release Year</td>
+            <td>Length</td>
+            <td>Rating</td>
+        </tr>
+    </thead>
+</table>

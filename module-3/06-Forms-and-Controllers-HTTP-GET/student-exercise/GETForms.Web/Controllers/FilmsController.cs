@@ -28,8 +28,8 @@ namespace GETForms.Web.Controllers
 
         public IActionResult Search(FilmSearchVM vm)
         {
-            IList<string> genres = filmDAO.GetGenres();
-            vm.GenreList = new SelectList(genres, "Name", "Name");
+            IList<string> Genres = filmDAO.GetGenres();
+            vm.GenreList = new SelectList(Genres, "Name", "Name");
 
             return View(vm);
         }
@@ -41,10 +41,10 @@ namespace GETForms.Web.Controllers
         /// </summary>
         /// <param name="request">A request model that contains the search parameters.</param>
         /// <returns></returns>
-        public IActionResult SearchResult(string genre, int minLength, int maxLength)
+        public IActionResult SearchResult(string Genre, int MinLength, int MaxLength)
         {
             /* Call the DAL and pass the values as a model back to the View */
-            IList<Film> films = filmDAO.GetFilmsBetween(genre, minLength, maxLength);
+            IList<Film> films = filmDAO.GetFilmsBetween(Genre, MinLength, MaxLength);
             return View(films);
         }
     }

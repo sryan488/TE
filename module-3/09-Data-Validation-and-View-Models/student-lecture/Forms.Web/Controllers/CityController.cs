@@ -54,6 +54,10 @@ namespace Forms.Web.Controllers
         public IActionResult Add(City city)
         {
             // TODO 07: Check model state before updating. If there are errors, return the form to the user.
+            if (!ModelState.IsValid)
+            {
+                return View(city);
+            }
 
             // Use the DAO to add a city
             int cityId = cityDAO.AddCity(city);

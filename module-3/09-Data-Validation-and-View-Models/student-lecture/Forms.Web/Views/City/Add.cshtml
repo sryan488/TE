@@ -16,19 +16,19 @@
         }
         <tr>
             <td><label asp-for="Name"></label></td>
-            <td><input asp-for="Name" /></td>
+            <td><input asp-for="Name" /><span asp-validation-for="Name" class="error"></span></td>
         </tr>
         <tr>
             <td><label asp-for="CountryCode"></label></td>
-            <td><input asp-for="CountryCode" /></td>
+            <td><input asp-for="CountryCode" /><span asp-validation-for="CountryCode" class="error"></span></td>
         </tr>
         <tr>
             <td><label asp-for="District"></label></td>
-            <td><input asp-for="District" /></td>
+            <td><input asp-for="District" /><span asp-validation-for="District" class="error"></span></td>
         </tr>
         <tr>
             <td><label asp-for="Population"></label></td>
-            <td><input asp-for="Population" /></td>
+            <td><input asp-for="Population" /><span asp-validation-for="Population" class="error"></span></td>
         </tr>
         <tr>
             <td></td>

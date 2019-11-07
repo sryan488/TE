@@ -1,6 +1,29 @@
-﻿
+﻿@model IList<Review>
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Index";
 }
+<div class="container">
+    <img class="DetaiImage" src="~/images/forDummies.png" height="200" width="150" />
+    <h2>Past Reviews</h2>
 
+    <table class="table table-striped">
+        <tbody>
+            @foreach (Review review in Model)
+            {
+                <tr>
+                    <td>
 
+                        <font size="4">@review.ReviewTitle</font>  @for (int i = 1; i <= review.Rating; i++)
+                                                {
+                                                    <img class="Stars" src="~/images/star.png" width="15"/> 
+                                                } <br />
+                            <font size="2">by @review.Username on @($"{review.ReviewDate:d}")</font> <br />
+
+                            <br /><p text="10px"><font size="2">@review.ReviewText</font> </p>
+</td>
+                </tr>
+            }
+            <tr><td><a asp-controller="Home" asp-action="NewReview"><font size="2">Submit a new review</font></a></td></tr>
+        </tbody>
+    </table>
+</div>

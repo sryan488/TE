@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -15,10 +16,21 @@ namespace Forms.Web.Models
          ***/
 
         public int CityId { get;  set; }
+
+        [Required(ErrorMessage = "Please supply a name")]
+        [StringLength(64)]
         public string Name { get;  set; }
+
+        [Required()]
+        [StringLength(3, MinimumLength = 3)]
+        [Display(Name = "Country Code", Prompt = "e.g., USA")]
         public string CountryCode { get;  set; }
         public string CountryName { get; set; }
+
+        [Required(ErrorMessage = "Please enter a district (e.g., State")]
         public string District { get;  set; }
+
+        [Range(1, 99999999)]
         public int Population { get;  set; }
 
         public City() { }

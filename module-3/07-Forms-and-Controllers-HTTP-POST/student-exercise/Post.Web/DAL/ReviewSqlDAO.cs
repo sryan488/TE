@@ -65,7 +65,7 @@ namespace Post.Web.DAL
                 {
                     conn.Open();
 
-                    string sql = $"INSERT INTO reviews (username, rating, review_title, review_text, review_date) VALUES (@username, @r, @rt, @rtext, @rd); SELECT @@IDENTITY;";
+                    string sql = $"INSERT INTO reviews (username, rating, review_title, review_text, review_date) VALUES (@username, @r, @rt, @rtext, @rd);";
                     SqlCommand cmd = new SqlCommand(sql, conn);
                     cmd.Parameters.AddWithValue("@username", newReview.Username);
                     cmd.Parameters.AddWithValue("@r", newReview.Rating);
@@ -80,6 +80,7 @@ namespace Post.Web.DAL
             {
                 throw ex;
             }
+           
         }
         private Review RowToObject(SqlDataReader reader)
         {

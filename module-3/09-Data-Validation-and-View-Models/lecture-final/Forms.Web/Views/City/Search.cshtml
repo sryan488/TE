@@ -1,0 +1,35 @@
+﻿@model CitySearchVM
+@{
+    ViewData["Title"] = "Search";
+}
+
+<h2>City Search</h2>
+
+@{ 
+    // TODO 01: Data Labels: Remove the hard-coded lables and allow MVC to use metadata to set the label text
+}
+<form method="get" asp-controller="City" asp-action="Search">
+    <table>
+        <tr>
+            <td><label asp-for="CountryCode"></label> </td>
+            @*<td><input type="text" asp-for="CountryCode" /></td>*@
+            <td><select asp-for="CountryCode" asp-items="Model.CountryList"></select></td>
+        </tr>
+        <tr>
+            <td><label asp-for="District"></label> </td>
+            <td><input type="text" asp-for="District" /></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Search!" /></td>
+        </tr>
+    </table>
+</form>
+
+
+
+
+
+
+<h2>Search Results</h2>
+<partial name="_CityList" model="Model.Cities" />

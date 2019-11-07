@@ -1,0 +1,8 @@
+﻿@model IList<City>
+@{
+    ViewData["Title"] = "Index";
+}
+<h2>All Cities</h2>
+<h3><a asp-controller="City" asp-action="Search">Search for a City</a></h3>
+
+<partial name="_CityList" model="Model" />

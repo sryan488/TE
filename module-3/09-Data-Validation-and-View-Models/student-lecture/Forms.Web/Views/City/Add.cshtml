@@ -1,0 +1,39 @@
+﻿@model City
+@{
+    ViewData["Title"] = "Add";
+}
+
+<h2>Add City</h2>
+
+<form method="post">
+    @{
+        // TODO 06: Add asp-validation-summary to the top
+    }
+
+    <table>
+        @{
+            // TODO 05: Add asp-validation-for spans to all fields
+        }
+        <tr>
+            <td><label asp-for="Name"></label></td>
+            <td><input asp-for="Name" /></td>
+        </tr>
+        <tr>
+            <td><label asp-for="CountryCode"></label></td>
+            <td><input asp-for="CountryCode" /></td>
+        </tr>
+        <tr>
+            <td><label asp-for="District"></label></td>
+            <td><input asp-for="District" /></td>
+        </tr>
+        <tr>
+            <td><label asp-for="Population"></label></td>
+            <td><input asp-for="Population" /></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Add City" /></td>
+        </tr>
+    </table>
+
+</form>

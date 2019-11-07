@@ -1,0 +1,33 @@
+﻿@model Review
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container">
+    <h2>New Book Review</h2>
+
+    <form method="post" asp-controller="Home" asp-action="NewReview">
+        <table>
+            <tr>
+                <td><label asp-for="Username">Enter your name:</label></td>
+                <td><input type="text" asp-for="Username" /></td>
+            </tr>
+            <tr>
+                <td><label asp-for="Rating">How many stars:</label></td>
+                <td><input type="text" asp-for="Rating" /></td>
+            </tr>
+            <tr>
+                <td><label asp-for="ReviewTitle">Provide a title:</label></td>
+                <td><input type="text" asp-for="ReviewTitle" /></td>
+            </tr>
+            <tr>
+                <td><label asp-for="ReviewText">Review:</label></td>
+                <td><input type="text" asp-for="ReviewText" /></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" value="Submit!" /></td>
+            </tr>
+        </table>
+    </form>
+</div>

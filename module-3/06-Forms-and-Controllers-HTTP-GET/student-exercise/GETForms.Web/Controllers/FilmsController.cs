@@ -23,13 +23,17 @@ namespace GETForms.Web.Controllers
         /// <returns></returns>
         public IActionResult Index()
         {
-            return View();
+            FilmSearchVM vm = new FilmSearchVM();
+            IList<string> Genres = filmDAO.GetGenres();
+            vm.GenreList = new SelectList(Genres);
+
+            return View(vm);
         }
 
         public IActionResult Search(FilmSearchVM vm)
         {
             IList<string> Genres = filmDAO.GetGenres();
-            vm.GenreList = new SelectList(Genres, "Name", "Name");
+            vm.GenreList = new SelectList(Genres);
 
             return View(vm);
         }

@@ -12,8 +12,8 @@ namespace GETForms.Web.Models
         public int? MaxLength { get; set; }
         public int? MinLength { get; set; }
         public IList<Film> Films { get; set; }
-        [Display(Name = "Genres")]
-        public string Genres { get; set; }
+        [Display(Name = "Genre")]
+        public string Genre { get; set; }
 
         //public void AddGenres(IList<string> newGenres)
         //{

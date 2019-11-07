@@ -59,10 +59,16 @@ namespace GETForms.Web.DAL
                 conn.Open();
 
                 SqlCommand cmd = new SqlCommand(filmSearchSql, conn);
-                cmd.Parameters.AddWithValue("@category_name", genre);
+                //cmd.Parameters.AddWithValue("@category_name", genre);
                 cmd.Parameters.AddWithValue("@minLength", minLength);
                 cmd.Parameters.AddWithValue("@maxLength", maxLength);
-                    
+                if (String.IsNullOrEmpty(genre))
+                {
+                    cmd.Parameters.AddWithValue("@category_name", DBNull.Value);
+                }
+                else
+                    cmd.Parameters.AddWithValue("@category_name", genre);
+
 
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())

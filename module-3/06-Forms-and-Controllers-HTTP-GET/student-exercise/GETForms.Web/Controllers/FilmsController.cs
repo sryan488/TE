@@ -45,6 +45,7 @@ namespace GETForms.Web.Controllers
         /// </summary>
         /// <param name="request">A request model that contains the search parameters.</param>
         /// <returns></returns>
+        [HttpGet]
         public IActionResult SearchResult(string Genre, int MinLength, int MaxLength)
         {
             /* Call the DAL and pass the values as a model back to the View */

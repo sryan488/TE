@@ -1,0 +1,56 @@
+﻿@model RecipeVM
+@{
+    ViewData["Title"] = "Add2";
+}
+
+<h1>@Model.Recipe.Name</h1>
+<h2>Ingredients</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Quantity</th>
+            <th>Unit</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Ingredient ing in Model.Recipe.Ingredients)
+        {
+            <tr>
+                <td>@ing.Name</td>
+                <td>@ing.Quantity</td>
+                <td>@ing.Unit</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<form asp-action="Add2" method="post">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Quantity</th>
+                <th>Unit</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input asp-for="NewIngredient.Name" /><br /><span class="error" asp-validation-for="NewIngredient.Name"></span></td>
+                <td><input asp-for="NewIngredient.Quantity" /><br /><span class="error" asp-validation-for="NewIngredient.Quantity"></span></td>
+                <td>
+                    <select asp-for="NewIngredient.Unit" asp-items="Model.Units">
+                        <option value=""></option>
+                    </select>
+                    <br /><span class="error" asp-validation-for="NewIngredient.Unit"></span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <input type="submit" value="Add" class="btn btn-primary"/>
+</form>
+<hr />
+<form asp-action="Add3" method="get">
+    <input type="submit" value="👈🏽 Back" class="btn btn-warning" asp-action="Add" />
+
+    <input type="submit" value="Next 👉🏽" class="btn btn-success" />
+</form>

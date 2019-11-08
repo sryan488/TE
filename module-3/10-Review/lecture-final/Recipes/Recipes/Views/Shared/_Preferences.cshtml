@@ -1,0 +1,9 @@
+﻿@model Preferences
+<form asp-action="Preferences" asp-controller="Home">
+    <label>Cuisine: </label>
+    <select asp-for="Cuisine" asp-items="Model.Cuisines">
+        <option value="">** No Preference **</option>
+    </select>
+    <br />
+    <input type="submit" value="What's Cookin'?" class="btn btn-primary" />
+</form>

@@ -66,7 +66,7 @@ namespace Recipes.Controllers
             }
             SetPreferredCuisine(pref.Cuisine);
             SetMessage($"Your preferred cuisine is now {(pref.Cuisine == null || pref.Cuisine == "" ? "Anything" : pref.Cuisine)}. Visit the Preferences page to change it.");
-            return RedirectToAction("Index", "Recipe");
+            return RedirectToAction("Index", "Recipe"); //TODO 01: first Post-Redirect-Get
         }
 
         public IActionResult Privacy()

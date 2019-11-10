@@ -1,0 +1,49 @@
+﻿@model RegistrationViewModel
+@{
+    ViewData["Title"] = "NewUser";
+}
+
+<h2>NewUser</h2>
+
+<form method="post">
+    <div asp-validation-summary="All" class="error"></div>
+    <table>
+        <tr>
+            <td><label asp-for="FirstName"></label></td>
+            <td><input asp-for="FirstName" /><span asp-validation-for="FirstName" class="error"></span></td>
+        </tr>
+        <tr>
+            <td><label asp-for="LastName"></label></td>
+            <td><input asp-for="LastName" /><span asp-validation-for="LastName" class="error"></span></td>
+        </tr>
+        <tr>
+            <td><label asp-for="Email"></label></td>
+            <td><input asp-for="Email" /><span asp-validation-for="Email" class="error"></span></td>
+        </tr>
+        <tr>
+            <td><label asp-for="ConfirmEmail"></label></td>
+            <td><input asp-for="ConfirmEmail" /><span asp-validation-for="ConfirmEmail" class="error"></span></td>
+        </tr>
+        <tr>
+            <td><label asp-for="Password"></label></td>
+            <td><input asp-for="Password" /><span asp-validation-for="Password" class="error"></span></td>
+        </tr>
+        <tr>
+            <td><label asp-for="ConfirmPassword"></label></td>
+            <td><input asp-for="ConfirmPassword" /><span asp-validation-for="ConfirmPassword" class="error"></span></td>
+        </tr>
+        <tr>
+            <td><label asp-for="BirthDate"></label></td>
+            <td><input asp-for="BirthDate" /><span asp-validation-for="BirthDate" class="error"></span></td>
+        </tr>
+        <tr>
+            <td><label asp-for="NumberOfTickets"></label></td>
+            <td><input asp-for="NumberOfTickets" /><span asp-validation-for="NumberOfTickets" class="error"></span></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Submit" /></td>
+        </tr>
+    </table>
+
+</form>

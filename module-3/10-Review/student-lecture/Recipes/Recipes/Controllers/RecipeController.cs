@@ -31,7 +31,7 @@ namespace Recipes.Controllers
             {
                 SetPreferredCuisine(cuisine);
             }
-            return View(recipeDAO.GetRecipes(cuisine));
+            return View(recipeDAO.GetRecipes(cuisine)); // TODO 02
         }
 
         public IActionResult Detail(int id)

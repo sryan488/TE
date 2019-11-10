@@ -12,7 +12,7 @@ namespace Validation.Web.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            return RedirectToAction("Index", "Users");
         }
 
         public IActionResult About()

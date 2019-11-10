@@ -46,9 +46,15 @@
             </tr>
         </tbody>
     </table>
-    <input type="submit" value="Add" class="btn btn-primary"/>
+    <input type="submit" value="Add" class="btn btn-primary" />
 </form>
 <hr />
+@* Notice that this view has TWO forms on it.  The form above allows the user to
+    continuously POST for Add2, which means the user keeps adding more ingredients.
+    This second form allows the user to GET the preceding (Add) and succeeding (Add3) 
+    forms. Note that the *form* method is Add3, but then there is an overried value on the Back button 
+    to use Add for the form method. 
+*@
 <form asp-action="Add3" method="get">
     <input type="submit" value="👈🏽 Back" class="btn btn-warning" asp-action="Add" />
 

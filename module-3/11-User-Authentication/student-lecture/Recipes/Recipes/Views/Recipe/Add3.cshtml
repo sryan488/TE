@@ -1,0 +1,29 @@
+﻿@model RecipeVM
+@{
+    ViewData["Title"] = "Add3";
+}
+
+<h1>@Model.Recipe.Name</h1>
+<h2>Steps</h2>
+<form asp-action="Add3" method="post">
+    <table>
+        <tbody>
+            <tr>
+                <td><label asp-for="Recipe.Steps"></label></td>
+                <td>
+                    <textarea asp-for="Recipe.Steps" cols="80"></textarea>
+                    <br /><span class="error" asp-validation-for="Recipe.Steps"></span>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <a asp-action="Add2" class="btn btn-warning">👈🏽 Back</a>
+                    @*<input type="submit" value="👈🏽 Back" asp-action="Add2" />*@
+                    <input type="submit" value="Save Recipe 👍🏽" class="btn btn-success" />
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</form>
+

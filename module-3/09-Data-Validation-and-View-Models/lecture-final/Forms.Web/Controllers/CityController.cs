@@ -56,6 +56,7 @@ namespace Forms.Web.Controllers
             // TODO 07: Check model state before updating. If there are errors, return the form to the user.
             if (!ModelState.IsValid)
             {
+                TempData["message"] = "Please try again. You messed up.";
                 return View(city);
             }
 
@@ -68,6 +69,7 @@ namespace Forms.Web.Controllers
             // TODO 03: Change from ViewData to TempData (here and in Layout, and above).
 
             // TODO 02a: Redirect to the search page
+            TempData["message"] = $"Your city called {city.Name} was added.  The Id was {cityId}.";
             return RedirectToAction("ConfirmAdd");
         }
 

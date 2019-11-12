@@ -1,0 +1,74 @@
+﻿@model RecipeVM
+@{
+    ViewData["Title"] = "Add";
+}
+
+<h1>Add Recipe 1</h1>
+
+<form asp-controller="Recipe" asp-action="Add" method="post">
+    <table>
+        <tbody>
+            <tr>
+                <td><label asp-for="Recipe.Name"></label></td>
+                <td>
+                    <input asp-for="Recipe.Name" />
+                    <span class="error" asp-validation-for="Recipe.Name"></span>
+                </td>
+            </tr>
+            <tr>
+                <td><label asp-for="Recipe.Description"></label></td>
+                <td>
+                    <input asp-for="Recipe.Description" />
+                    <span class="error" asp-validation-for="Recipe.Description"></span>
+                </td>
+            </tr>
+            <tr>
+                <td><label asp-for="Recipe.Meal"></label></td>
+                <td>
+                    @*<input asp-for="Recipe.Meal" />*@
+                    <select asp-for="Recipe.Meal" asp-items="Model.MealTypes">
+                        <option value=""></option>
+                    </select>
+                    <span class="error" asp-validation-for="Recipe.Meal"></span>
+                </td>
+            </tr>
+            <tr>
+                <td><label asp-for="Recipe.Cuisine"></label></td>
+                <td>
+                    <select asp-for="Recipe.Cuisine" asp-items="Model.Cuisines">
+                        <option value=""></option>
+                    </select>
+                    <span class="error" asp-validation-for="Recipe.Cuisine"></span>
+                </td>
+            </tr>
+            <tr>
+                <td><label asp-for="Recipe.PrepTime"></label></td>
+                <td>
+                    <input asp-for="Recipe.PrepTime" />
+                    <span class="error" asp-validation-for="Recipe.PrepTime"></span>
+                </td>
+            </tr>
+            <tr>
+                <td><label asp-for="Recipe.CookTime"></label></td>
+                <td>
+                    <input asp-for="Recipe.CookTime" />
+                    <span class="error" asp-validation-for="Recipe.CookTime"></span>
+                </td>
+            </tr>
+            <tr>
+                <td><label asp-for="Recipe.Serves"></label></td>
+                <td>
+                    <input asp-for="Recipe.Serves" />
+                    <span class="error" asp-validation-for="Recipe.Serves"></span>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="🚫 Reset 🚫" class="btn btn-danger" asp-action="ClearRecipe" />
+                    <input type="submit" value="Next 👉🏽" class="btn btn-success" />
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</form>

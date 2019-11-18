@@ -17,5 +17,27 @@ namespace Puppies.Web.Controllers
         {
             this.puppyDao = puppyDao;
         }
+
+        [HttpGet]
+        public IActionResult Index()
+        {
+            IList<Puppy> puppies = puppyDao.GetPuppies();
+            return View(puppies);
+        }
+
+        public IActionResult Detail(int id)
+        {
+            Puppy puppy = puppyDao.GetPuppy(id);
+            return View(puppy);
+
+        }
+
+        [HttpPost]
+        public IActionResult SavePuppy(Puppy newPuppy)
+        {
+            puppyDao.SavePuppy(newPuppy); 
+
+            return RedirectToAction("Index");
+        }
     }
 }

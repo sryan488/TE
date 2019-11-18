@@ -12,23 +12,34 @@
         <th>Gender</th>
         <th>Paper Trained?</th>
     </tr>
-
+    @foreach (Puppy puppy in Model)
+    {
     <tr>
         <td>
-            Example Name
+            <a asp-controller="Puppies" asp-action="Detail" asp-route-id="@puppy.Id" />@puppy.Name 
         </td>
         <td>
-            0 lbs
+            @puppy.Weight lbs
         </td>
         <td>
-            Example
+            @puppy.Gender
         </td>
-        <td>
-            Maybe
-        </td>
+        @if (puppy.PaperTrained == true)
+        {
+            <td>
+                Yes
+            </td>
+        }
+        else
+        {
+            <td>
+                No
+            </td>
+        }
     </tr>
-
+    }
 </table>
+
 <fieldset>
 <legend>Add a new puppy</legend>
 

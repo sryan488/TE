@@ -1,0 +1,17 @@
+﻿@model Preferences
+@{
+    ViewData["Title"] = "Preferences";
+}
+
+<h1>Preferences</h1>
+@*<form asp-action="Preferences" asp-controller="Home">
+        <label>Cuisine: </label>
+        <select asp-for="Cuisine" asp-items="Model.Cuisines">
+            <option value="">** No Preference **</option>
+        </select>
+        <br />
+        <input type="submit" value="Save Preferences" class="btn btn-primary" />
+    </form>*@
+
+@* Include the Partial View that allows the user to select a preferred cuisine *@
+<partial name="_Preferences" model="Model" />

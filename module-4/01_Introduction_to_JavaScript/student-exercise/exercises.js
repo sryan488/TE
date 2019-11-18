@@ -12,6 +12,12 @@
 			return x + y;
         }
 */
+function sumDouble( x, y){
+	if (x === y ){
+		return 2 * (x+y);
+	}
+	return x+y;
+}
 
 /*
 2. **hasTeen** We'll say that a number is "teen" if it is in the range 13..19 inclusive. 
@@ -21,6 +27,17 @@
 		hasTeen(20, 19, 10) → true
 		hasTeen(20, 10, 13) → true
 */
+function hasTeen(x, y, z){
+	if (x >= 13 && x <= 19){
+		return true;}
+		if (y >= 13 && y <= 19){
+			return true;}
+			if (z >= 13 && z <= 19){
+				return true;}
+				else{
+					return false;}
+
+	}
 
 /* 
 3. **lastDigit** Given two non-negative int values, return true if they have the same 
@@ -30,6 +47,12 @@
 		lastDigit(6, 17) → false
 		lastDigit(3, 113) → true
 */
+function lastDigit(a,b){
+	if (a % 10 === b % 10){
+		return true;}
+			else{
+				return false;}
+		}
 
 /*
 4. **seeColor** Given a string, if the string begins with "red" or "blue" return that color 
@@ -39,6 +62,15 @@
 		seeColor("xxred") → ""
         seeColor("blueTimes") → "blue"
 */
+function seeColor(a){
+	if (a.startsWith('red')){
+		return 'red';}
+	else if (a.startsWith('blue')){
+		return 'blue';}
+	else{
+		return "";}
+	}
+			
 
 /*
 5. **oddOnly** Write a function that given an array of integer of any length, filters out 
@@ -47,6 +79,15 @@
 		oddOnly([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]) → [1, 3, 5, 7, 9, 11];
 		oddOnly([2, 4, 8, 32, 256]); → []
 */
+function oddOnly(values){
+	let newValues = [];
+	for (let i = 0; i <= values.length; i++){
+		if (values[i] % 2 == 1){
+			newValues.push(values[i]);
+		}
+	}
+	return newValues;
+}
 
 /*
 6. **frontAgain** Given a string, return true if the first 2 chars in the string also appear 
@@ -56,6 +97,13 @@
 		frontAgain("edit") → false
 		frontAgain("ed") → true
 */
+function frontAgain(a){
+	if (a.substring(0,2) == a.substring(a.length-2)){
+		return true;
+	} 
+	return false;
+}
+
 
 /*
 7. **cigarParty** When squirrels get together for a party, they like to have cigars. 
@@ -68,6 +116,14 @@ or false otherwise.
 		cigarParty(50, false) → true
 		cigarParty(70, true) → true
 */
+function cigarParty(cigars, weekend){
+	if (cigars >= 40 & weekend == true){
+		return true;}
+		else if ((cigars >= 40 & cigars <= 60) & (weekend == false)){
+			return true;}
+			return false;			
+}
+
 
 /*
 8. **fizzBuzz** Because you know you can't live without it, FizzBuzz.
@@ -78,6 +134,17 @@ or false otherwise.
 		fizzBuzz(15) → "FizzBuzz"
 		fizzBuzz(8) → 8
 */
+function fizzBuzz(a){
+	if (a % 15 == 0){
+		return "FizzBuzz";}
+		else if (a % 3 == 0){
+			return "Fizz";}
+			else if (a % 5 == 0){
+				return "Buzz";}
+					else{
+						return a;}
+					}
+
 
 /*
 9. **filterEvens** Write a function that filters an array to only include even numbers.
@@ -87,6 +154,15 @@ or false otherwise.
 	filterEvens([2, 4, 6]) → [2, 4, 6]
 	filterEvens([100, 8, 21, 24, 62, 9, 7]) → [100, 8, 24, 62]
 */
+function filterEvens(values){
+	let evens = [];
+	for(let i = 0; i<= values.length; i++){
+		if (values[i] % 2 == 0){
+			evens.push(values[i]);
+		}
+	}
+	return evens;
+}
 
 /*
 10. **filterBigNumbers** Write a function that filters numbers greater than or equal to 100.
@@ -95,6 +171,15 @@ or false otherwise.
 	filterBigNumbers([3, 2, 7, 1, -100, -120]) → []
 	filterBigNumbers([]) → []
 */
+function filterBigNumbers(values){
+	let hundyPlus = [];
+	for (let i = 0; i <= values.length; i++){
+		if (values[i] >= 100){
+			hundyPlus.push(values[i])
+		}
+	}
+	return hundyPlus;
+}
 
 /*
 11. **filterMultiplesOfX** Write a function to filter numbers that are a multiple of a 
@@ -103,6 +188,15 @@ parameter, `x` passed in.
 	filterMultiplesOfX([3, 5, 1, 9, 18, 21, 42, 67], 3) → [3, 9, 18, 21, 42]
 	filterMultiplesOfX([3, 5, 10, 20, 18, 21, 42, 67], 5) → [5, 10, 20]
 */
+function filterMultiplesOfX(values, x){
+	let multsOfX = [];
+	for(let i = 0; i <= values.length; i++){
+		if (values[i] % x === 0){
+			multsOfX.push(values[i])
+		}
+	}
+	return multsOfX;
+}
 
 /*
 12. **createObject** Write a function that creates an object with a property called 
@@ -116,3 +210,11 @@ firstName, lastName, and age. Populate the properties with your values.
 		age
 	}
 */
+function createObject(firstName, lastName, age){
+	let object = {
+	firstName: "Sean",
+    lastName: "Ryan",
+	age: 30,
+	}
+	return object;
+}

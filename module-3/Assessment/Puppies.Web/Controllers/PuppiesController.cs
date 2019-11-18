@@ -33,7 +33,7 @@ namespace Puppies.Web.Controllers
         }
 
         [HttpPost]
-        public IActionResult SavePuppy(Puppy newPuppy)
+        public IActionResult Save(Puppy newPuppy)
         {
             puppyDao.SavePuppy(newPuppy); 
 

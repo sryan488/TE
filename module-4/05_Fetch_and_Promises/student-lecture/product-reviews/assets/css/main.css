@@ -100,3 +100,7 @@ h3 {
 .btnFade.btnPurple:hover {
     background: rgb(73, 18, 73);
 }
+
+.hidden{
+    display: none;
+}

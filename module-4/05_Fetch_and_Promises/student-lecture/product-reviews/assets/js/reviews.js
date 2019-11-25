@@ -10,10 +10,30 @@ let reviews = [];
 */
 function loadReviews() {
   console.log("Load Reviews...");
-  const urlToFetch = 'data.json';
-  //const urlToFetch = 'https://my-json-server.typicode.com/blazebiz/json1/reviews';
+  //const urlToFetch = 'data.json';
+  const urlToFetch = 'https://my-json-server.typicode.com/blazebiz/json1/reviews';
 
   // TODO: fetch data here...
+
+
+  fetch(urlToFetch).then(
+    (resp) => {
+      if(resp.ok) {
+      resp.json().then(
+        (data) => {
+          reviews = data;
+          displayReviews();
+        }
+      )
+    } else {
+      console.log(`Error: ${resp.status} ${resp.statusText}`)
+    }
+    }
+  ).catch(
+    (err) => {
+      console.log(err);
+    }
+  )
 
 }
 
@@ -21,6 +41,15 @@ function loadReviews() {
 /****************
  * TODO: Once we have a DOM, add an event listener for the button. It will call loadReviews, and then disable itself.
  */
+
+ document.addEventListener('DOMContentLoaded', () => {
+  const button = document.getElementById('loadReviews');
+  button.addEventListener('click', (ev) => {
+    loadReviews();
+    //ev.target.disabled = true;
+    ev.target.classList.add('hidden');
+})
+ });
 
 
 /**

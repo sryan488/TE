@@ -37,5 +37,50 @@ function displayGroceries() {
   });
 }
 
-setPageTitle();
-displayGroceries();
+document.addEventListener('DOMContentLoaded', () =>{
+  setPageTitle();
+  displayGroceries();
+
+  const items = document.querySelectorAll('li');
+  items.forEach((item) => {
+    item.addEventListener('click',(ev) => {
+      complete(ev.target)
+    });
+    item.addEventListener('dblclick', (ev) => {
+      incomplete(ev.target)
+    });
+  });
+
+
+  function complete(item){
+    if(!item.classList.contains('completed')){
+      item.classList.add('completed');
+      item.querySelector('i').classList.add('completed');
+    }
+  }
+
+  function incomplete(item){
+    if(item.classList.contains('completed')){
+      item.classList.remove('completed');
+      item.querySelector('i').classList.remove('completed');
+    }
+  }
+
+  const completeAll = document.getElementById('toggleAll');
+  completeAll.addEventListener('click', () => {
+    items.forEach((item) => {
+      if(!item.classList.contains('completed')) {
+      item.classList.add('completed');
+      item.querySelector('i').classList.add('completed');
+      completeAll.innerText = 'Mark All Incomplete';
+      }
+      else{
+        item.classList.remove('completed');
+        item.querySelector('i').classList.remove('completed');
+        completeAll.innerText = 'Mark All Complete';
+      }
+    });
+  });
+
+});
+

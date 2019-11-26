@@ -40,10 +40,11 @@ namespace ProductReviewsAPI
             });
 
             // Add CORS policy
-            // services.AddCors(options => {
-            //     options.AddPolicy("CorsPolicy",
-            //     builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
-            // });
+             services.AddCors(options =>
+             {
+                 options.AddPolicy("CorsPolicy",
+                 builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+             });
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddSingleton<DataAccessObject, DataAccessObject>();

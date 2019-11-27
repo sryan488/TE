@@ -1,0 +1,464 @@
+/* CSS Color Variables */
+:root {
+  --color-beige: #e2dccc;
+  --color-yellow: #dec022;
+  --color-black: #04110f;
+  --border-black: 6px solid #04110f;
+  --border-black-thin: 2px solid #04110f;
+  --color-teal: #00acc1;
+  --color-purple: #6f7bd0;
+  --color-red: #931a47;
+  --color-red2: #ca3101;
+  --color-green: #009688;
+  --color-orange: #e88c30;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+/*  */
+body {
+  font-family: "Mclaren", sans-serif;
+  background-color: var(--color-beige);
+  padding: 3rem;
+  line-height: 1.2;
+}
+
+/* The h3 tags make up for the section titles */
+h3 {
+  font-family: Syncopate, sans-serif;
+  font-weight: 700;
+  font-size: 2.5rem;
+  background: var(--color-yellow);
+  color: var(--color-black);
+  letter-spacing: 0.2rem;
+  padding: 1rem 2rem;
+  text-transform: uppercase;
+  border: var(--border-black);
+}
+
+/* Make images responsive */
+img {
+  width: 100%;
+}
+
+/* 
+  3-col. grid 
+  min-content = min space necessary for content
+  2fr and 1fr are 2 cols taking up remaining spaces
+*/
+
+header {
+  display: grid;
+  grid-template-columns: min-content 2fr 1.3fr;
+}
+
+/*
+* T O A
+* S T Y
+*/
+.name {
+  display: grid;
+  grid-template-columns: repeat(3, 60px);
+  grid-template-rows: repeat(2, 60px);
+  grid-column: span 1;
+  font-family: Syncopate, sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  color: var(--color-yellow);
+  border: var(--border-black);
+  background-color: var(--color-black);
+}
+
+.name span {
+  padding-top: 0.5rem;
+}
+
+/* Yellow on Black */
+.name span:nth-child(2n + 1) {
+  background-color: var(--color-black);
+}
+
+/* Black on Yellow */
+.name span:nth-child(2n) {
+  background-color: var(--color-yellow);
+  color: var(--color-black);
+}
+
+/* Purple Box in Header */
+.opening-hours {
+  grid-column: span 1;
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+  font-size: 1.8rem;
+  line-height: 1.1;
+  background: var(--color-purple);
+  color: var(--color-beige);
+  border: var(--border-black);
+  border-width: 6px 0 6px 0;
+  padding: 1rem 1.6rem;
+}
+
+/* Black Box in Header */
+.location {
+  grid-column: 3 / 4;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  background: var(--color-black);
+  color: var(--color-beige);
+  padding: 0.6rem;
+  border: var(--border-black);
+}
+
+.location .address {
+  font-family: Syncopate;
+  font-weight: 700;
+  margin: 0.3rem 0.8rem 0.3rem 0.3rem;
+  font-size: 1.6rem;
+}
+
+/* Colored Legend */
+.legend {
+  display: flex;
+  justify-content: flex-end;
+  border: var(--border-black);
+  border-width: 0 6px 6px 6px;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent 0px,
+    transparent 5px,
+    #04110f 5px,
+    #04110f 10px
+  );
+}
+
+.legend-item {
+  background-color: var(--color-beige);
+}
+
+.legend-item i {
+  display: inline-block;
+  width: 55px;
+  font-family: Syncopate;
+  color: var(--color-beige);
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-align: center;
+  line-height: 2.3;
+  border: var(--border-black);
+  border-width: 0 6px 0 6px;
+}
+
+.legend-item:nth-child(1) {
+  color: var(--color-teal);
+}
+
+.legend-item:nth-child(1) i {
+  background-color: var(--color-teal);
+  border-left-width: 5px;
+}
+
+.legend-item:nth-child(2) {
+  color: var(--color-red);
+}
+
+.legend-item:nth-child(2) i {
+  background-color: var(--color-red);
+}
+
+.legend-item:nth-child(3) {
+  color: var(--color-orange);
+}
+
+.legend-item:nth-child(3) i {
+  background-color: var(--color-orange);
+}
+
+.legend-item:nth-child(4) {
+  color: var(--color-green);
+}
+
+.legend-item:nth-child(4) i {
+  background-color: var(--color-green);
+}
+
+.legend-item:nth-child(5) {
+  color: var(--color-red2);
+}
+
+.legend-item:nth-child(5) i {
+  background-color: var(--color-red2);
+}
+
+.legend-item span {
+  display: inline-block;
+  text-transform: uppercase;
+  padding: 12px 20px 12px 12px;
+}
+
+.menu {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: stretch;
+  border: var(--border-black);
+  border-width: 0 0px 6px 6px;
+}
+
+/* 
+* Create a grid for descriptions (toasts and sides)
+* TITLE       PRICE
+* DESCRIPTION DESCRIPTION
+* CALORIES    CALORIES
+* ALLERGENS   ALLERGENS
+*/
+.item-desc {
+  display: grid;
+  grid-template-columns: 1fr min-content;
+  grid-column-gap: 8px;
+}
+
+.item-name,
+.item-price {
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+}
+
+.item-price {
+  grid-row: 1;
+  grid-column: 2;
+}
+
+.item-description,
+.item-allergens {
+  grid-column: 1 / -1;
+}
+
+.item-description,
+.item-calories {
+  margin-bottom: 0.3rem;
+  font-family: Open Sans;
+  color: #444;
+  font-size: 1.1rem;
+}
+
+span.allergen {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  border: var(--border-black-thin);
+  font-family: Syncopate;
+  font-weight: 800;
+  font-size: 0.8rem;
+  padding-top: 7px;
+  color: var(--color-beige);
+}
+
+/* Helps with the double border */
+span.allergen:not(:first-child) {
+  margin-left: -2px;
+}
+
+/* Allergen colors */
+span.allergen.nuts {
+  background-color: var(--color-teal);
+}
+span.allergen.wheat {
+  background-color: var(--color-orange);
+}
+span.allergen.dairy {
+  background-color: var(--color-green);
+}
+span.allergen.sea {
+  background-color: var(--color-red2);
+}
+span.allergen.eggs {
+  background-color: var(--color-red);
+}
+
+/* Avocado Toasts 
+*  This is a flex container
+*/
+.mains {
+  grid-column: 1 / 4;
+  grid-row: 1 / 4;
+  display: flex;
+  flex-direction: column;
+  border-right: var(--border-black);
+  align-items: flex-start;
+}
+
+.mains h3 {
+  width: 100%;
+  border-width: 0 0 6px 0;
+}
+
+/* 
+  Holds all of the items in the mains section  
+*/
+.mains-items {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* 
+  Each item is a flex container
+  Holding the Image and the Description
+*/
+.mains .item {
+  width: calc(100% / 2);
+  display: flex;
+  align-items: stretch;
+  padding: 1.2rem;
+}
+
+/* Description should take up remaining space */
+.mains .item-desc {
+  flex: 1;
+  padding-left: 1rem;
+}
+
+/* Image is inflexible and will take up 180px 
+   but grow up to 200px.
+*/
+.mains .item-image {
+  flex: 0 0 180px;
+  max-width: 200px;
+  position: relative;
+}
+
+/*
+* Creates blur effect after the image.
+*/
+.mains .item-image::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(to right, transparent, var(--color-beige));
+}
+
+.sides {
+  grid-column: 4 / 5;
+  grid-row: 1 / 3;
+  border-right: var(--border-black);
+}
+
+.sides h3 {
+  border-width: 0 0 6px 0;
+}
+
+.sides .item {
+  padding: 1rem 2rem;
+}
+
+.latte {
+  border: var(--border-black);
+  grid-column: 1 / 4;
+  grid-row: 4 / 6;
+  display: grid;
+  border-width: 6px 6px 0 0;
+  grid-template-columns: min-content 1fr;
+}
+
+.latte h3 {
+  grid-column: 1 / 2;
+  grid-row: 1 / 3;
+  transform: rotate(-180deg);
+  writing-mode: vertical-rl;
+  width: calc(100%);
+  border: var(--border-black);
+  border-width: 0 0 0 6px;
+}
+
+/* Container that holds all latte items*/
+.latte-items {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.latte .item {
+  padding: 1rem;
+  width: calc(100% / 4);
+}
+
+.latte .item-image {
+  text-align: center;
+}
+
+.latte .item img {
+  width: 90%;
+  max-width: 160px;
+}
+
+.latte .item-name,
+.latte .item-price {
+  margin-top: 1rem;
+}
+
+.tarts {
+  grid-column: 4 / 5;
+  grid-row: 3 / 5;
+  display: flex;
+  flex-wrap: wrap;
+  border-right: var(--border-black);
+}
+
+.tarts h3 {
+  width: 100%;
+  border-width: 6px 0;
+}
+
+.tarts .item {
+  flex: 1 1 50%;
+  min-width: 16em;
+  padding: 0.5rem 2rem;
+}
+
+.tarts .item-image {
+  text-align: center;
+}
+
+.tarts .item img {
+  max-width: 170px;
+}
+
+.menu-download {
+  background-color: var(--color-purple);
+  color: var(--color-beige);
+  font-family: Syncopate;
+  grid-column: 4 / 5;
+  grid-row: 5 / 6;
+  padding: 2rem 4rem;
+  display: block;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 1.6rem;
+  border: var(--border-black);
+  border-width: 6px 6px 0 0;
+}
+
+footer {
+  margin-top: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  align-items: center;
+  justify-content: space-between;
+  display: flex;
+  flex-wrap: wrap;
+}

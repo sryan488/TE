@@ -6,12 +6,12 @@
 
         <div class="well-display">
             <div class="well">
-                <span class="amount">-</span>
+                <span class="amount">{{ averageRating }}</span>
                 Average Rating
             </div>
 
             <div class="well">
-                <span class="amount">-</span>
+                <span class="amount">{{ numberOfOneStarReviews }}</span>
                 1 Star Review
             </div>
 
@@ -86,6 +86,23 @@ export default {
                 }
             ]
         };
+    },
+    computed: {
+        averageRating() {
+            let sum = this.reviews.reduce( (currentSum, review) => {
+                return currentSum + review.rating;
+            }, 0);
+            return sum / this.reviews.length;
+        },
+        numberOfOneStarReviews() {
+            return this.reviews.reduce( (currentCount, review) => {
+                if(review.rating == 1) {
+                    return currentCount + 1;
+                } else {
+                    return currentCount;
+                }
+            }, 0);
+        }
     }
 }
 </script>

@@ -45,11 +45,13 @@
 export default {
   data() {
     return {
-      
+      review: {
+        title: '',
+        reviewer: '',
+        rating: '',
+        review: ''
+      }
     }
-  },
-  methods: {
-    
   }
 }
 </script>

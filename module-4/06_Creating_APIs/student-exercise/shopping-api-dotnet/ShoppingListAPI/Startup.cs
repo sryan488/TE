@@ -33,7 +33,8 @@ namespace ShoppingListAPI
                 builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             });
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-            services.AddSingleton<IDataAccessObject<Item>, DataAccessObject>();
+            // services.AddSingleton<IDataAccessObject<Item>, DataAccessObject>();
+            services.AddSingleton<DataAccessObject, DataAccessObject>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

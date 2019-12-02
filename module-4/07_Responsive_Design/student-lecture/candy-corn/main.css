@@ -144,3 +144,46 @@ main div.poster {
   display: none;
 }
 
+/* When our screen size is 600 or more pixels */
+@media only screen and (min-width: 600px){
+  nav ul {
+    flex-direction: row;
+  }
+
+  nav ul li {
+    width: 30%;
+  }
+
+  main div.poster {
+    display: block;
+    height: 200px;
+  }
+
+  div.poster img {
+    object-fit: cover;
+  }
+}
+
+@media only screen and (min-width: 950px) {
+  body{
+    grid-template-columns: 1fr 2fr 2fr 2fr 2fr 1fr;
+    grid-template-areas:
+    ". header header nav nav ." 
+    ". main main main main ." 
+    ". order-now order-now store store ." 
+  }
+
+  nav {
+    align-self: end;
+  }
+
+  main {
+    flex-direction: row;
+  }
+
+  main div.poster {
+    height: inherit;
+    align-self: stretch;
+    padding-right: 10px;
+  }
+}

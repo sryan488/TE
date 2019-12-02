@@ -11,48 +11,48 @@ namespace ShoppingListAPI.Services
     public class DataAccessObject : IDataAccessObject<Item>
     {
 
-        public List<Item> groceries { get; set; }
+        public List<Item> Groceries { get; set; }
 
         public DataAccessObject()
         {
-            this.groceries = new List<Item>
+            this.Groceries = new List<Item>
             {
-                new Item { Id=1,name="Oatmeal",completed=false},
-                new Item { Id=2,name="Milk",completed=false},
-                new Item { Id=3,name="Banana",completed=false},
-                new Item { Id=4,name="Strawberries",completed=false},
-                new Item { Id=5,name="Lunch Meat",completed=false},
-                new Item { Id=6,name="Bread",completed=false},
-                new Item { Id=7,name="Grapes",completed=false},
-                new Item { Id=8,name="Steak",completed=false},
-                new Item { Id=9,name="Salad",completed=false},
-                new Item { Id=10,name="Cookies",completed=false}
+                new Item { Id=1,Name="Oatmeal",Completed=false},
+                new Item { Id=2,Name="Milk",Completed=false},
+                new Item { Id=3,Name="Banana",Completed=false},
+                new Item { Id=4,Name="Strawberries",Completed=false},
+                new Item { Id=5,Name="Lunch Meat",Completed=false},
+                new Item { Id=6,Name="Bread",Completed=false},
+                new Item { Id=7,Name="Grapes",Completed=false},
+                new Item { Id=8,Name="Steak",Completed=false},
+                new Item { Id=9,Name="Salad",Completed=false},
+                new Item { Id=10,Name="Cookies",Completed=false}
             };
         }
 
         public List<Item> GetAll()
         {
-            return this.groceries;
+            return this.Groceries;
         }
 
         public Item Get(int id)
         {
-            return groceries.Find(item => item.Id == id);
+            return Groceries.Find(item => item.Id == id);
         }
 
         public void Add(Item item)
         {
-            groceries.Add(item);
+            Groceries.Add(item);
         }
 
         public void Update(Item item)
         {
-            groceries[groceries.FindIndex(i => i.Id == item.Id)] = item;
+            Groceries[Groceries.FindIndex(i => i.Id == item.Id)] = item;
         }
 
         public void Delete(int id)
         {
-            groceries.Remove(groceries.Find(item => item.Id == id));
+            Groceries.Remove(Groceries.Find(item => item.Id == id));
         }
 
     }

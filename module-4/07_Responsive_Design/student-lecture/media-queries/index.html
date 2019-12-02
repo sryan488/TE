@@ -7,7 +7,26 @@
     <title>Document</title>
 </head>
 <style>
-    
+    body {
+        background-color: lightgreen;
+    }
+
+    /*Anything 1200px or less*/
+    @media screen and (max-width: 1200px) {
+        body {
+            background-color: lightblue;
+        }
+    }
+    /*Anything 1768px or less*/
+    @media only screen and (max-width: 768px) {
+        body{
+            background-color: lightpink;
+        }
+
+        h1 {
+            display: none;
+        }
+    }
 </style>
 <body>
     <h1>Now You See Me!</h1>    

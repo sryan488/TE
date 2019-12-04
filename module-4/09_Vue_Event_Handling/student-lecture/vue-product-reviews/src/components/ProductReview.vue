@@ -16,22 +16,38 @@
             </div>
 
             <div class="well">
+<<<<<<< HEAD
                 <span class="amount" v-on:click="filter = 2">{{ numberOfTwoStarReviews }}</span>
+=======
+                <span class="amount"  v-on:click="filter = 2">{{ numberOfTwoStarReviews }}</span>
+>>>>>>> 44607ee06d999e18b47f9d9292adc9a65fc762e0
                 2 Star Review{{ numberOfTwoStarReviews === 1 ? '' : 's' }}
             </div>
 
             <div class="well">
+<<<<<<< HEAD
                 <span class="amount" v-on:click="filter = 3">{{ numberOfThreeStarReviews }}</span>
+=======
+                <span class="amount"  v-on:click="filter = 3">{{ numberOfThreeStarReviews }}</span>
+>>>>>>> 44607ee06d999e18b47f9d9292adc9a65fc762e0
                 3 Star Review{{ numberOfThreeStarReviews === 1 ? '' : 's' }}
             </div>
 
             <div class="well">
+<<<<<<< HEAD
                 <span class="amount" v-on:click="filter = 4">{{ numberOfFourStarReviews }}</span>
+=======
+                <span class="amount"  v-on:click="filter = 4">{{ numberOfFourStarReviews }}</span>
+>>>>>>> 44607ee06d999e18b47f9d9292adc9a65fc762e0
                 4 Star Review{{ numberOfFourStarReviews === 1 ? '' : 's' }}
             </div>
 
             <div class="well">
+<<<<<<< HEAD
                 <span class="amount" v-on:click="filter = 5">{{ numberOfFiveStarReviews }}</span>
+=======
+                <span class="amount"  v-on:click="filter = 5">{{ numberOfFiveStarReviews }}</span>
+>>>>>>> 44607ee06d999e18b47f9d9292adc9a65fc762e0
                 5 Star Review{{ numberOfFiveStarReviews === 1 ? '' : 's' }}
             </div>
         </div>
@@ -120,8 +136,13 @@ export default {
                 let filteredArray = [];
                 this.reviews.forEach( (review) => {
                     if(review.rating === this.filter) {
+<<<<<<< HEAD
                             filteredArray.push(review);
                         }
+=======
+                        filteredArray.push(review);
+                    }
+>>>>>>> 44607ee06d999e18b47f9d9292adc9a65fc762e0
                 });
                 return filteredArray;
             }

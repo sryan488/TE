@@ -13,6 +13,7 @@
               class="form-control"
               id="shippingAddress"
               placeholder="1234 Main St"
+              v-model="shipping.address"
             >
           </div>
           <div class="form-group">
@@ -22,16 +23,17 @@
               class="form-control"
               id="shippingAddress2"
               placeholder="Apartment, studio, or floor"
+              v-model="shipping.address2"
             >
           </div>
           <div class="form-row">
             <div class="form-group col-md-6">
               <label for="shippingCity">City</label>
-              <input type="text" class="form-control" id="shippingCity">
+              <input type="text" class="form-control" id="shippingCity" v-model="shipping.city">
             </div>
             <div class="form-group col-md-4">
               <label for="shippingState">State</label>
-              <select id="shippingState" class="form-control">
+              <select id="shippingState" class="form-control" v-model="shipping.state">
                 <option value="" selected>Choose...</option>
                 <option value="MI">MI</option>
                 <option value="OH">OH</option>
@@ -40,7 +42,7 @@
             </div>
             <div class="form-group col-md-2">
               <label for="shippingZip">Zip</label>
-              <input type="text" class="form-control" id="shippingZip">
+              <input type="text" class="form-control" id="shippingZip" v-model="shipping.zip">
             </div>
           </div>
           <div class="form-row">
@@ -54,6 +56,7 @@
                   id="delivertoFrontDoor"
                   value="Front Door"
                   checked
+                  v-model="shipping.deliverto"
                 >
                 <label class="form-check-label" for="delivertoFrontDoor">Front Door</label>
               </div>
@@ -64,6 +67,7 @@
                   name="deliverto"
                   id="delivertoSideDoor"
                   value="Side Door"
+                  v-model="shipping.deliverto"
                 >
                 <label class="form-check-label" for="delivertoSideDoor">Side Door</label>
               </div>
@@ -74,6 +78,7 @@
                   name="deliverto"
                   id="delivertoBackDoor"
                   value="Back Door"
+                  v-model="shipping.deliverto"
                 >
                 <label class="form-check-label" for="delivertoBackDoor">Back Door</label>
               </div>
@@ -104,6 +109,7 @@
                 class="form-control"
                 id="billingAddress"
                 placeholder="1234 Main St"
+                v-model="billing.address"
               >
             </div>
             <div class="form-group">
@@ -113,16 +119,17 @@
                 class="form-control"
                 id="billingAddress2"
                 placeholder="Apartment, studio, or floor"
+                v-model="billing.address2"
               >
             </div>
             <div class="form-row">
               <div class="form-group col-md-6">
                 <label for="billingCity">City</label>
-                <input type="text" class="form-control" id="billingCity">
+                <input type="text" class="form-control" id="billingCity" v-model="billing.city">
               </div>
               <div class="form-group col-md-4">
                 <label for="billingState">State</label>
-                <select id="billingState" class="form-control">
+                <select id="billingState" class="form-control" v-model="billing.state">
                   <option value="" selected>Choose...</option>
                   <option value="MI">MI</option>
                   <option value="OH">OH</option>
@@ -131,7 +138,7 @@
               </div>
               <div class="form-group col-md-2">
                 <label for="billingZip">Zip</label>
-                <input type="text" class="form-control" id="billingZip">
+                <input type="text" class="form-control" id="billingZip" v-model="billing.zip" >
               </div>
             </div>
           </div>
@@ -143,49 +150,49 @@
         <div class="results">
           <h3>Shipping Address</h3>
           <div class="line-item">
-            Address:
+            Address: {{shipping.address}}
             <span class="shipping-address"></span>
           </div>
           <div class="line-item">
-            Address 2:
+            Address 2: {{shipping.address2}}
             <span class="shipping-address2"></span>
           </div>
           <div class="line-item">
-            City:
+            City: {{shipping.city}}
             <span class="shipping-city"></span>
           </div>
           <div class="line-item">
-            State:
+            State: {{shipping.state}}
             <span class="shipping-state"></span>
           </div>
           <div class="line-item">
-            Zip:
+            Zip: {{shipping.zip}}
             <span class="shipping-zip"></span>
           </div>
           <div class="line-item">
-            Deliver to:
+            Deliver to: {{shipping.deliverto}}
             <span class="shipping-deliverto"></span>
           </div>
 
           <h3>Billing Address</h3>
           <div class="line-item">
-            Address:
+            Address: {{billing.address}}
             <span class="billing-address"></span>
           </div>
           <div class="line-item">
-            Address 2:
+            Address 2: {{billing.address2}}
             <span class="billing-address2"></span>
           </div>
           <div class="line-item">
-            City:
+            City: {{billing.city}}
             <span class="billing-city"></span>
           </div>
           <div class="line-item">
-            State:
+            State: {{billing.state}}
             <span class="billing-state"></span>
           </div>
           <div class="line-item">
-            Zip:
+            Zip: {{billing.zip}}
             <span class="billing-zip"></span>
           </div>
 
@@ -200,19 +207,40 @@ export default {
   name: 'address-info',
   data() {
     return {
-      billingSameAsShipping: false
-    };
+      shipping: {
+        address: '',
+        address2: '',
+        city: '',
+        state: '',
+        zip: '',
+        deliverto: '',
+      },
+
+      billingSameAsShipping: false,
+
+      billing: {
+        address: '',
+        address2: '',
+        city: '',
+        state: '',
+        zip: '',
+      }
+    }
   },
   methods: {
     updateBilling() {
       console.log('I am called when the checkbox "Billing same as shipping" is checked or unchecked.');
       this.billingSameAsShipping = !this.billingSameAsShipping;
       // if billingSameAsShipping set billing equal to shipping
-
+      if(this.billingSameAsShipping){
+        this.billing = this.shipping;
+      }
       // else clear all the billing address fields
+      else {this.billing == ''}
     },
     clearBillingAddress() {
       // clear the billing address fields
+      this.billing == '';
     }
   }
 };

@@ -2,14 +2,31 @@
   <div class="shopping-list">
     <h1>My Shopping List</h1>
     <ul>
-
+      <li v-for="grocery in groceries" :key="grocery.item" :id="grocery.item" :class="{completed: grocery.completed}">
+        {{grocery.item}}
+      </li>
     </ul>
   </div>
 </template>
 
 <script>
 export default {
+  name: "shopping-list",
+  data() {
+    return {
+      groceries: [
+        {item: 'bread', completed: true}, 
+        {item: 'milk', completed: true}, 
+        {item: 'butter', completed: true}, 
+        {item: 'honey', completed: true}, 
+        {item: 'chips', completed: false}, 
+        {item: 'soda', completed: false}, 
+        {item: 'dip', completed: false}, 
+        {item: 'eggs', completed: false}, 
+        {item: 'cereal', completed: false}]
+    }
 
+  }
 }
 </script>
 

@@ -6,9 +6,9 @@
 
         <review-summary v-on:filter-reviews="handleFilter" v-bind:reviews="reviews"></review-summary>
 
-        <review-form v-on:new-review="handleNewReview"></review-form>
-
         <review-list v-bind:reviews="reviews" v-bind:filter="filter"></review-list>
+
+        <review-form v-on:new-review="handleNewReview"></review-form>
     </div>
 </template>
 

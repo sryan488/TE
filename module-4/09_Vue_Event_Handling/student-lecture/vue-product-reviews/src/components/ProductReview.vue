@@ -139,10 +139,6 @@ export default {
 <<<<<<< HEAD
                             filteredArray.push(review);
                         }
-=======
-                        filteredArray.push(review);
-                    }
->>>>>>> 44607ee06d999e18b47f9d9292adc9a65fc762e0
                 });
                 return filteredArray;
             }
